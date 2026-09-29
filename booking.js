@@ -326,14 +326,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (modalProceed) {
     modalProceed.addEventListener('click', () => {
-      modalProceed.textContent = 'Booking Verified!';
-      modalProceed.style.backgroundColor = '#059669';
-      setTimeout(() => {
-        closeCheckoutModal();
-        modalProceed.textContent = 'Proceed to Checkout';
-        modalProceed.style.backgroundColor = '';
-        alert('Booking details verified! Ready for Checkout feature.');
-      }, 700);
+      const nameVal = customerNameInput ? customerNameInput.value.trim() : '';
+      const phoneVal = customerPhoneInput ? customerPhoneInput.value.trim() : '';
+      const dateVal = bookingDateInput ? bookingDateInput.value : '';
+      const timeVal = selectedTimeInput ? selectedTimeInput.value : '09:00 AM';
+
+      // Save to sessionStorage
+      try {
+        sessionStorage.setItem('servicehub_booking', JSON.stringify({
+          serviceId: currentService.id,
+          name: nameVal,
+          phone: phoneVal,
+          date: dateVal,
+          time: timeVal,
+          quantity: quantity,
+          price: currentService.price
+        }));
+      } catch (err) {
+        // sessionStorage optional
+      }
+
+      // Navigate to checkout.html
+      const checkoutUrl = `checkout.html?id=${encodeURIComponent(currentService.id)}&date=${encodeURIComponent(dateVal)}&time=${encodeURIComponent(timeVal)}&name=${encodeURIComponent(nameVal)}&phone=${encodeURIComponent(phoneVal)}&qty=${quantity}`;
+      window.location.href = checkoutUrl;
     });
   }
 

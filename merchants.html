@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse verified ServiceHub merchants, compare pricing, check customer ratings, and view provider profiles.">
+  <title>Service Providers &bull; ServiceHub</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 1. Navbar -->
+  <header class="site-header">
+    <nav class="nav-container" aria-label="Main Navigation">
+      <a href="index.html" class="nav-brand" aria-label="ServiceHub Home">
+        <svg viewBox="0 0 40 40" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="10" fill="#2563EB"/>
+          <path d="M20 9L29.5 14.5V25.5L20 31L10.5 25.5V14.5L20 9Z" stroke="white" stroke-width="2.2" stroke-linejoin="round"/>
+          <circle cx="20" cy="20" r="3.5" fill="white"/>
+          <line x1="20" y1="9" x2="20" y2="16.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <line x1="29.5" y1="25.5" x2="23" y2="21.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <line x1="10.5" y1="25.5" x2="17" y2="21.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-name">Service<span>Hub</span></span>
+      </a>
+
+      <!-- Navigation Links -->
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="merchants.html" class="nav-link active" aria-current="page">Services</a></li>
+        <li><a href="categories.html" class="nav-link">Categories</a></li>
+        <li><a href="login.html" class="nav-link">Login</a></li>
+      </ul>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <a href="signup.html" class="btn btn-sm btn-primary">Sign Up</a>
+        <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 1. Page Header -->
+    <header class="listing-header">
+      <div class="listing-header-wrapper">
+        <div class="listing-category-badge" id="category-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 14 14"></polyline>
+          </svg>
+          <span id="badge-text">All Providers</span>
+        </div>
+        <h1 class="listing-title" id="page-title">Verified Service Providers</h1>
+        <p class="listing-subtitle" id="page-subtitle">
+          Browse verified local merchants, compare starting rates, review genuine customer feedback, and view provider profiles.
+        </p>
+      </div>
+    </header>
+
+    <!-- 2 & 3. Search & Simple Filters Section -->
+    <section class="listing-toolbar-section" aria-label="Search and Filter Providers">
+      <div class="listing-toolbar-card">
+        
+        <!-- Search Row -->
+        <div class="listing-search-row">
+          <span class="listing-search-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </span>
+          <input 
+            type="search" 
+            id="merchant-search-input" 
+            class="listing-search-input" 
+            placeholder="Search merchants by name or service (e.g. cleaning, detailing, plumbing, hair)..." 
+            aria-label="Search merchants by name or service">
+        </div>
+
+        <!-- Filters Row -->
+        <div class="listing-filters-row">
+          <div class="filter-group-left">
+            
+            <!-- Category Filter -->
+            <div class="filter-select-wrap">
+              <label for="filter-category" class="visually-hidden">Filter by Category</label>
+              <select id="filter-category" class="filter-select" aria-label="Filter by Category">
+                <option value="All">All Categories</option>
+                <option value="Home">Home</option>
+                <option value="Beauty">Beauty</option>
+                <option value="Pet">Pet</option>
+                <option value="Automotive">Automotive</option>
+                <option value="Education">Education</option>
+                <option value="Repair">Repair</option>
+                <option value="Cleaning">Cleaning</option>
+                <option value="Other">Other Services</option>
+              </select>
+            </div>
+
+            <!-- Price Range Filter -->
+            <div class="filter-select-wrap">
+              <label for="filter-price" class="visually-hidden">Filter by Price Range</label>
+              <select id="filter-price" class="filter-select" aria-label="Filter by Price Range">
+                <option value="All">All Prices</option>
+                <option value="under50">Under $50</option>
+                <option value="50to100">$50 to $100</option>
+                <option value="over100">$100+</option>
+              </select>
+            </div>
+
+            <!-- Rating Filter -->
+            <div class="filter-select-wrap">
+              <label for="filter-rating" class="visually-hidden">Filter by Rating</label>
+              <select id="filter-rating" class="filter-select" aria-label="Filter by Rating">
+                <option value="All">All Ratings</option>
+                <option value="4.9">4.9 &amp; up ★</option>
+                <option value="4.8">4.8 &amp; up ★</option>
+                <option value="4.5">4.5 &amp; up ★</option>
+              </select>
+            </div>
+
+            <!-- Reset Filters Button -->
+            <button type="button" id="btn-reset-filters" class="btn-reset-filters">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                <path d="M3 3v5h5"/>
+              </svg>
+              <span>Reset</span>
+            </button>
+          </div>
+
+          <!-- Counter -->
+          <div class="results-count-badge" id="results-count" aria-live="polite">
+            Showing 9 merchants
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4 & 5. Merchant Cards Results Grid -->
+    <section class="section-container" style="padding-top: 0;" aria-label="Merchant Listings">
+      <div class="merchants-grid" id="merchants-grid" role="list">
+
+        <!-- Merchant 1: SparkleClean Co. (Cleaning) -->
+        <article class="merchant-card" data-category="Cleaning" data-price="65" data-rating="4.9" role="listitem">
+          <div class="merchant-card-head">
+            <div class="merchant-avatar" style="background: linear-gradient(135deg, #059669, #10b981);" aria-hidden="true">
+              SC
+            </div>
+            <div class="merchant-meta">
+              <div class="merchant-name-row">
+                <h2 class="merchant-card-title">SparkleClean Co.</h2>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="Verified Merchant">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              </div>
+              <p class="merchant-owner">Owner: Elena Rostova</p>
+              <span class="merchant-cat-pill theme-cleaning">Cleaning</span>
+            </div>
+          </div>
+
+          <div class="merchant-rating-row" aria-label="Rated 4.9 out of 5 stars from 142 reviews">
+            <span class="star-icon" aria-hidden="true">&#9733;</span>
+            <span>4.9</span>
+            <span class="rating-count">(142 reviews)</span>
+          </div>
+
+          <p class="merchant-card-desc">
+            Residential and commercial deep cleaning specialists with over 8 years of local experience, vetted crews, and eco-friendly supplies.
+          </p>
+
+          <div class="merchant-features-wrap">
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Eco-Friendly
+            </span>
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Insured
+            </span>
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Same-Day
+            </span>
+          </div>
+
+          <div class="merchant-card-foot">
+            <div class="merchant-price-col">
+              <span class="merchant-price-label">Starting at</span>
+              <span class="merchant-price-val">$65</span>
+              <div class="merchant-location-row">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>Central City • 1.8 mi</span>
+              </div>
+            </div>
+            <a href="merchant-profile.html?id=1" class="btn-view-profile" data-merchant-id="1">
+              <span>View Profile</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Merchant 2: Apex Auto Studio (Automotive) -->
+        <article class="merchant-card" data-category="Automotive" data-price="120" data-rating="5.0" role="listitem">
+          <div class="merchant-card-head">
+            <div class="merchant-avatar" style="background: linear-gradient(135deg, #1e293b, #475569);" aria-hidden="true">
+              AA
+            </div>
+            <div class="merchant-meta">
+              <div class="merchant-name-row">
+                <h2 class="merchant-card-title">Apex Auto Studio</h2>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="Verified Merchant">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              </div>
+              <p class="merchant-owner">Owner: Marcus Chen</p>
+              <span class="merchant-cat-pill theme-automotive">Automotive</span>
+            </div>
+          </div>
+
+          <div class="merchant-rating-row" aria-label="Rated 5.0 out of 5 stars from 215 reviews">
+            <span class="star-icon" aria-hidden="true">&#9733;</span>
+            <span>5.0</span>
+            <span class="rating-count">(215 reviews)</span>
+          </div>
+
+          <p class="merchant-card-desc">
+            Certified mobile auto detailing and ceramic paint protection. We bring water, power, and showroom shine directly to your driveway.
+          </p>
+
+          <div class="merchant-features-wrap">
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Mobile Service
+            </span>
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Ceramic Pro
+            </span>
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              100% Guaranteed
+            </span>
+          </div>
+
+          <div class="merchant-card-foot">
+            <div class="merchant-price-col">
+              <span class="merchant-price-label">Starting at</span>
+              <span class="merchant-price-val">$120</span>
+              <div class="merchant-location-row">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>Westside • 3.2 mi</span>
+              </div>
+            </div>
+            <a href="merchant-profile.html?id=2" class="btn-view-profile" data-merchant-id="2">
+              <span>View Profile</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Merchant 3: Express Plumbing Pros (Repair) -->
+        <article class="merchant-card" data-category="Repair" data-price="85" data-rating="4.8" role="listitem">
+          <div class="merchant-card-head">
+            <div class="merchant-avatar" style="background: linear-gradient(135deg, #dc2626, #b91c1c);" aria-hidden="true">
+              EP
+            </div>
+            <div class="merchant-meta">
+              <div class="merchant-name-row">
+                <h2 class="merchant-card-title">Express Plumbing Pros</h2>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="Verified Merchant">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              </div>
+              <p class="merchant-owner">Owner: David Miller</p>
+              <span class="merchant-cat-pill theme-repair">Repair</span>
+            </div>
+          </div>
+
+          <div class="merchant-rating-row" aria-label="Rated 4.8 out of 5 stars from 98 reviews">
+            <span class="star-icon" aria-hidden="true">&#9733;</span>
+            <span>4.8</span>
+            <span class="rating-count">(98 reviews)</span>
+          </div>
+
+          <p class="merchant-card-desc">
+            Master licensed plumbers handling emergency leaks, pipe diagnostics, water heaters, and drain clearance 24/7 with upfront honest pricing.
+          </p>
+
+          <div class="merchant-features-wrap">
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              24/7 Emergency
+            </span>
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Licensed &amp; Bonded
+            </span>
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Free Quotes
+            </span>
+          </div>
+
+          <div class="merchant-card-foot">
+            <div class="merchant-price-col">
+              <span class="merchant-price-label">Starting at</span>
+              <span class="merchant-price-val">$85</span>
+              <div class="merchant-location-row">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>North Metro • 4.1 mi</span>
+              </div>
+            </div>
+            <a href="merchant-profile.html?id=3" class="btn-view-profile" data-merchant-id="3">
+              <span>View Profile</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Merchant 4: HappyPaws Grooming (Pet) -->
+        <article class="merchant-card" data-category="Pet" data-price="45" data-rating="4.9" role="listitem">
+          <div class="merchant-card-head">
+            <div class="merchant-avatar" style="background: linear-gradient(135deg, #d97706, #f59e0b);" aria-hidden="true">
+              HP
+            </div>
+            <div class="merchant-meta">
+              <div class="merchant-name-row">
+                <h2 class="merchant-card-title">HappyPaws Grooming</h2>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="Verified Merchant">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              </div>
+              <p class="merchant-owner">Owner: Chloe Adams</p>
+              <span class="merchant-cat-pill theme-pet">Pet</span>
+            </div>
+          </div>
+
+          <div class="merchant-rating-row" aria-label="Rated 4.9 out of 5 stars from 88 reviews">
+            <span class="star-icon" aria-hidden="true">&#9733;</span>
+            <span>4.9</span>
+            <span class="rating-count">(88 reviews)</span>
+          </div>
+
+          <p class="merchant-card-desc">
+            Gentle pet styling and wellness care. Breed-specific haircuts, deshedding baths, ear sanitizing, flea wash, and soothing paw pad treatments.
+          </p>
+
+          <div class="merchant-features-wrap">
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Fear-Free Certified
+            </span>
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Organic Shampoos
+            </span>
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              All Pet Sizes
+            </span>
+          </div>
+
+          <div class="merchant-card-foot">
+            <div class="merchant-price-col">
+              <span class="merchant-price-label">Starting at</span>
+              <span class="merchant-price-val">$45</span>
+              <div class="merchant-location-row">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>South Hills • 2.0 mi</span>
+              </div>
+            </div>
+            <a href="merchant-profile.html?id=4" class="btn-view-profile" data-merchant-id="4">
+              <span>View Profile</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Merchant 5: Glow Beauty Lounge (Beauty) -->
+        <article class="merchant-card" data-category="Beauty" data-price="55" data-rating="4.8" role="listitem">
+          <div class="merchant-card-head">
+            <div class="merchant-avatar" style="background: linear-gradient(135deg, #db2777, #f472b6);" aria-hidden="true">
+              GB
+            </div>
+            <div class="merchant-meta">
+              <div class="merchant-name-row">
+                <h2 class="merchant-card-title">Glow Beauty Lounge</h2>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="Verified Merchant">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              </div>
+              <p class="merchant-owner">Owner: Sophia Taylor</p>
+              <span class="merchant-cat-pill theme-beauty">Beauty</span>
+            </div>
+          </div>
+
+          <div class="merchant-rating-row" aria-label="Rated 4.8 out of 5 stars from 156 reviews">
+            <span class="star-icon" aria-hidden="true">&#9733;</span>
+            <span>4.8</span>
+            <span class="rating-count">(156 reviews)</span>
+          </div>
+
+          <p class="merchant-card-desc">
+            Award-winning hair styling, balayage, skincare therapies, brow shaping, and bridal makeup by certified cosmetologists.
+          </p>
+
+          <div class="merchant-features-wrap">
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Cruelty-Free
+            </span>
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Private Rooms
+            </span>
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Bridal Specialist
+            </span>
+          </div>
+
+          <div class="merchant-card-foot">
+            <div class="merchant-price-col">
+              <span class="merchant-price-label">Starting at</span>
+              <span class="merchant-price-val">$55</span>
+              <div class="merchant-location-row">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>Uptown Plaza • 1.2 mi</span>
+              </div>
+            </div>
+            <a href="merchant-profile.html?id=5" class="btn-view-profile" data-merchant-id="5">
+              <span>View Profile</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Merchant 6: BrightPath Learning (Education) -->
+        <article class="merchant-card" data-category="Education" data-price="40" data-rating="4.9" role="listitem">
+          <div class="merchant-card-head">
+            <div class="merchant-avatar" style="background: linear-gradient(135deg, #7c3aed, #a78bfa);" aria-hidden="true">
+              BP
+            </div>
+            <div class="merchant-meta">
+              <div class="merchant-name-row">
+                <h2 class="merchant-card-title">BrightPath Learning</h2>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="Verified Merchant">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              </div>
+              <p class="merchant-owner">Owner: Dr. Robert Vance</p>
+              <span class="merchant-cat-pill theme-education">Education</span>
+            </div>
+          </div>
+
+          <div class="merchant-rating-row" aria-label="Rated 4.9 out of 5 stars from 74 reviews">
+            <span class="star-icon" aria-hidden="true">&#9733;</span>
+            <span>4.9</span>
+            <span class="rating-count">(74 reviews)</span>
+          </div>
+
+          <p class="merchant-card-desc">
+            Personalized K-12 and collegiate tutoring in mathematics, physics, chemistry, coding, and standardized SAT/ACT exam preparation.
+          </p>
+
+          <div class="merchant-features-wrap">
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              PhD Tutors
+            </span>
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              In-Person &amp; Online
+            </span>
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Weekly Progress
+            </span>
+          </div>
+
+          <div class="merchant-card-foot">
+            <div class="merchant-price-col">
+              <span class="merchant-price-label">Starting at</span>
+              <span class="merchant-price-val">$40 <span style="font-size: 0.75rem; font-weight: normal; color: var(--color-text-muted);">/ hr</span></span>
+              <div class="merchant-location-row">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>University District • 2.5 mi</span>
+              </div>
+            </div>
+            <a href="merchant-profile.html?id=6" class="btn-view-profile" data-merchant-id="6">
+              <span>View Profile</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Merchant 7: TimberCraft Renovations (Home) -->
+        <article class="merchant-card" data-category="Home" data-price="150" data-rating="4.9" role="listitem">
+          <div class="merchant-card-head">
+            <div class="merchant-avatar" style="background: linear-gradient(135deg, #1d4ed8, #3b82f6);" aria-hidden="true">
+              TC
+            </div>
+            <div class="merchant-meta">
+              <div class="merchant-name-row">
+                <h2 class="merchant-card-title">TimberCraft Renovations</h2>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="Verified Merchant">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              </div>
+              <p class="merchant-owner">Owner: James Wilson</p>
+              <span class="merchant-cat-pill theme-home">Home</span>
+            </div>
+          </div>
+
+          <div class="merchant-rating-row" aria-label="Rated 4.9 out of 5 stars from 112 reviews">
+            <span class="star-icon" aria-hidden="true">&#9733;</span>
+            <span>4.9</span>
+            <span class="rating-count">(112 reviews)</span>
+          </div>
+
+          <p class="merchant-card-desc">
+            Custom cabinetry, finish carpentry, interior painting, tile installation, deck construction, and residential kitchen updates.
+          </p>
+
+          <div class="merchant-features-wrap">
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Bonded &amp; Insured
+            </span>
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Custom Woodwork
+            </span>
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              10-Yr Guarantee
+            </span>
+          </div>
+
+          <div class="merchant-card-foot">
+            <div class="merchant-price-col">
+              <span class="merchant-price-label">Starting at</span>
+              <span class="merchant-price-val">$150</span>
+              <div class="merchant-location-row">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>Suburbs East • 5.0 mi</span>
+              </div>
+            </div>
+            <a href="merchant-profile.html?id=7" class="btn-view-profile" data-merchant-id="7">
+              <span>View Profile</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Merchant 8: LensCraft Media (Other) -->
+        <article class="merchant-card" data-category="Other" data-price="180" data-rating="4.7" role="listitem">
+          <div class="merchant-card-head">
+            <div class="merchant-avatar" style="background: linear-gradient(135deg, #0d9488, #14b8a6);" aria-hidden="true">
+              LM
+            </div>
+            <div class="merchant-meta">
+              <div class="merchant-name-row">
+                <h2 class="merchant-card-title">LensCraft Media</h2>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="Verified Merchant">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              </div>
+              <p class="merchant-owner">Owner: Tyler Brooks</p>
+              <span class="merchant-cat-pill theme-other">Other Services</span>
+            </div>
+          </div>
+
+          <div class="merchant-rating-row" aria-label="Rated 4.7 out of 5 stars from 63 reviews">
+            <span class="star-icon" aria-hidden="true">&#9733;</span>
+            <span>4.7</span>
+            <span class="rating-count">(63 reviews)</span>
+          </div>
+
+          <p class="merchant-card-desc">
+            Corporate event photography, personal brand portraits, wedding recaps, and certified aerial 4K drone cinematography.
+          </p>
+
+          <div class="merchant-features-wrap">
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              FAA Drone Certified
+            </span>
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              48h Turnaround
+            </span>
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              4K Raw Files
+            </span>
+          </div>
+
+          <div class="merchant-card-foot">
+            <div class="merchant-price-col">
+              <span class="merchant-price-label">Starting at</span>
+              <span class="merchant-price-val">$180</span>
+              <div class="merchant-location-row">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>Creative District • 3.8 mi</span>
+              </div>
+            </div>
+            <a href="merchant-profile.html?id=8" class="btn-view-profile" data-merchant-id="8">
+              <span>View Profile</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Merchant 9: Precision Appliance & HVAC (Repair) -->
+        <article class="merchant-card" data-category="Repair" data-price="75" data-rating="4.8" role="listitem">
+          <div class="merchant-card-head">
+            <div class="merchant-avatar" style="background: linear-gradient(135deg, #b91c1c, #ef4444);" aria-hidden="true">
+              PR
+            </div>
+            <div class="merchant-meta">
+              <div class="merchant-name-row">
+                <h2 class="merchant-card-title">Precision Appliance &amp; HVAC</h2>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="Verified Merchant">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              </div>
+              <p class="merchant-owner">Owner: Frank Ramirez</p>
+              <span class="merchant-cat-pill theme-repair">Repair</span>
+            </div>
+          </div>
+
+          <div class="merchant-rating-row" aria-label="Rated 4.8 out of 5 stars from 120 reviews">
+            <span class="star-icon" aria-hidden="true">&#9733;</span>
+            <span>4.8</span>
+            <span class="rating-count">(120 reviews)</span>
+          </div>
+
+          <p class="merchant-card-desc">
+            Prompt diagnostics and repair for refrigerators, washers, dryers, ovens, air conditioning, and heating systems.
+          </p>
+
+          <div class="merchant-features-wrap">
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              OEM Parts
+            </span>
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              90-Day Warranty
+            </span>
+            <span class="merchant-feature-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Same-Day Dispatch
+            </span>
+          </div>
+
+          <div class="merchant-card-foot">
+            <div class="merchant-price-col">
+              <span class="merchant-price-label">Starting at</span>
+              <span class="merchant-price-val">$75</span>
+              <div class="merchant-location-row">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>East Industrial • 4.5 mi</span>
+              </div>
+            </div>
+            <a href="merchant-profile.html?id=9" class="btn-view-profile" data-merchant-id="9">
+              <span>View Profile</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- No Results State (Hidden by default) -->
+      <div class="empty-merchants-box" id="empty-state" hidden>
+        <div class="empty-merchants-icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            <line x1="8" y1="11" x2="14" y2="11"></line>
+          </svg>
+        </div>
+        <h3 class="empty-merchants-title">No merchants found</h3>
+        <p class="empty-merchants-desc">
+          We couldn't find any service providers matching your current search or filter criteria. Try adjusting your filters or resetting them below.
+        </p>
+        <button type="button" class="btn btn-primary btn-sm" id="empty-reset-btn" style="width: auto;">
+          <span>Reset All Filters</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Profile Quick Preview Dialog (fallback for View Profile) -->
+  <div class="service-modal-backdrop" id="profile-preview-modal" role="dialog" aria-modal="true" aria-labelledby="preview-title" hidden>
+    <div class="service-modal">
+      <button type="button" class="modal-close-btn" id="modal-profile-close" aria-label="Close profile">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <span class="merchant-cat-pill theme-home" id="preview-category" style="display: inline-block; margin-bottom: 0.75rem;">Category</span>
+      <h3 class="service-title" id="preview-title" style="font-size: 1.375rem; margin-bottom: 0.25rem;">Merchant Name</h3>
+      <p class="service-merchant" id="preview-owner" style="margin-bottom: 0.75rem; color: var(--color-text-muted);">
+        <span>Owner Name</span>
+      </p>
+      <div class="service-meta-row" style="margin-bottom: 1rem; padding-top: 0.5rem; border-top: none;">
+        <div class="service-rating" id="preview-rating">
+          <span class="star-icon">&#9733;</span>
+          <span id="preview-rating-val">4.9</span>
+        </div>
+        <div class="service-price" id="preview-price">$65</div>
+      </div>
+      <p id="preview-description" style="font-size: var(--font-size-sm); color: var(--color-text-muted); line-height: 1.6; margin-bottom: 1.25rem;">
+        Detailed merchant profile description.
+      </p>
+      <div class="merchant-location-row" id="preview-location" style="margin-bottom: 1.5rem; font-size: var(--font-size-sm);">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <span id="preview-location-val">Location info</span>
+      </div>
+      <button type="button" class="btn btn-primary" id="modal-profile-action" style="width: 100%;">
+        <span>Close Profile</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        
+        <!-- Brand Info -->
+        <div class="footer-brand">
+          <div class="nav-brand" style="margin-bottom: 0.75rem;">
+            <svg viewBox="0 0 40 40" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="10" fill="#2563EB"/>
+              <path d="M20 9L29.5 14.5V25.5L20 31L10.5 25.5V14.5L20 9Z" stroke="white" stroke-width="2.2" stroke-linejoin="round"/>
+              <circle cx="20" cy="20" r="3.5" fill="white"/>
+            </svg>
+            <span class="brand-name">Service<span>Hub</span></span>
+          </div>
+          <p class="footer-brand-desc">
+            The modern local service marketplace connecting customers with verified, professional merchants across home, automotive, repair, and lifestyle services.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="merchants.html" class="footer-link">Service Providers</a></li>
+            <li><a href="categories.html" class="footer-link">Categories</a></li>
+            <li><a href="login.html" class="footer-link">Customer Login</a></li>
+            <li><a href="signup.html" class="footer-link">Customer Sign Up</a></li>
+          </ul>
+        </div>
+
+        <!-- Merchant Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">For Merchants</h4>
+          <ul class="footer-links">
+            <li><a href="merchant-signup.html" class="footer-link">Register as Merchant</a></li>
+            <li><a href="login.html" class="footer-link">Merchant Login</a></li>
+            <li><a href="categories.html" class="footer-link">Category Guidelines</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Contact Information</h4>
+          <ul class="footer-contact-list">
+            <li class="contact-item">
+              <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              <span>support@servicehub.com</span>
+            </li>
+            <li class="contact-item">
+              <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>+1 (800) 555-SERV (7378)</span>
+            </li>
+            <li class="contact-item">
+              <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              <span>Mon - Fri: 8:00 AM - 7:00 PM EST</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 ServiceHub Inc. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Terms of Service</a>
+          <a href="#" class="footer-link">Trust &amp; Safety</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="merchants.js"></script>
+</body>
+</html>

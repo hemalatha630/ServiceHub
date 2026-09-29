@@ -6025,6 +6025,240 @@ body {
   }
 }
 
+/* ==========================================================================
+   FEATURE 15: Professional Admin Dashboard Styles
+   ========================================================================== */
+
+/* Admin Portal Tag */
+.admin-portal-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6d28d9;
+  background-color: #ede9fe;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  margin-top: 0.5rem;
+}
+
+/* Status Badges for Admin */
+.status-badge.status-approved,
+.status-badge.status-active {
+  background-color: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+}
+.status-badge.status-approved::before,
+.status-badge.status-active::before {
+  background-color: #059669;
+}
+
+.status-badge.status-suspended {
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+}
+.status-badge.status-suspended::before {
+  background-color: #dc2626;
+}
+
+.status-badge.status-pending {
+  background-color: #fffbeb;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+.status-badge.status-pending::before {
+  background-color: #b45309;
+}
+
+/* Action Buttons in Admin Tables */
+.table-actions-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+
+.btn-table-action {
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  text-decoration: none;
+}
+
+.btn-action-view {
+  background-color: #ffffff;
+  color: var(--color-text-main);
+  border: 1px solid var(--color-border);
+}
+.btn-action-view:hover {
+  background-color: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.btn-action-approve {
+  background-color: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+}
+.btn-action-approve:hover {
+  background-color: #d1fae5;
+}
+
+.btn-action-suspend {
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+}
+.btn-action-suspend:hover {
+  background-color: #fee2e2;
+}
+
+.btn-action-activate {
+  background-color: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+}
+.btn-action-activate:hover {
+  background-color: #dbeafe;
+}
+
+.btn-action-delete {
+  background-color: #fff1f2;
+  color: #e11d48;
+  border: 1px solid #fecdd3;
+}
+.btn-action-delete:hover {
+  background-color: #ffe4e6;
+}
+
+/* 4. Admin Category Cards Grid */
+.admin-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.admin-category-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.admin-category-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+}
+
+.admin-category-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-category-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background-color: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+}
+
+.admin-category-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin: 0;
+}
+
+.admin-category-desc {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+
+.admin-category-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--color-border);
+  margin-top: 0.25rem;
+}
+
+/* 6. Admin Reviews Stack */
+.admin-reviews-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.admin-review-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.admin-review-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* 7. Admin Settings Form */
+.admin-settings-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  max-width: 780px;
+}
+
+/* Responsive adjustments for Admin Dashboard */
+@media (max-width: 1080px) {
+  .admin-categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .admin-categories-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .table-actions-cell {
+    flex-wrap: wrap;
+  }
+}
+
+
 
 
 

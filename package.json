@@ -1,0 +1,10 @@
+{
+  "name": "servicehub-login",
+  "version": "1.0.0",
+  "description": "ServiceHub Professional Login Page",
+  "main": "index.html",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  }
+}

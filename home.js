@@ -249,4 +249,22 @@ document.addEventListener('DOMContentLoaded', () => {
       closeModal();
     }
   });
+
+  // Check URL Parameters on load (e.g. from categories page: index.html?category=Home#services)
+  const urlParams = new URLSearchParams(window.location.search);
+  const initialCategory = urlParams.get('category');
+  if (initialCategory) {
+    categoryCards.forEach(card => {
+      if (card.dataset.category.toLowerCase() === initialCategory.toLowerCase()) {
+        card.classList.add('active');
+        activeCategory = card.dataset.category;
+      }
+    });
+    filterServices();
+    // Scroll to services section
+    setTimeout(() => {
+      document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+    }, 150);
+  }
 });
+

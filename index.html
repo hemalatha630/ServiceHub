@@ -3,195 +3,587 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sign in to ServiceHub - The modern platform connecting customers with trusted service merchants.">
-  <title>Sign In &bull; ServiceHub</title>
+  <meta name="description" content="ServiceHub - Find the right service for you. Discover trusted service providers, compare services, and book with ease.">
+  <title>ServiceHub &bull; Find the Right Service for You</title>
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <main class="page-container">
-    <div class="login-wrapper">
-      
-      <!-- Brand Header -->
-      <div class="brand-header">
-        <div class="brand-logo" aria-hidden="true">
-          <svg viewBox="0 0 40 40" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="40" height="40" rx="10" fill="#2563EB"/>
-            <path d="M20 9L29.5 14.5V25.5L20 31L10.5 25.5V14.5L20 9Z" stroke="white" stroke-width="2.2" stroke-linejoin="round"/>
-            <circle cx="20" cy="20" r="3.5" fill="white"/>
-            <line x1="20" y1="9" x2="20" y2="16.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
-            <line x1="29.5" y1="25.5" x2="23" y2="21.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
-            <line x1="10.5" y1="25.5" x2="17" y2="21.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+<body id="home">
+
+  <!-- 1. Navbar -->
+  <header class="site-header">
+    <nav class="nav-container" aria-label="Main Navigation">
+      <a href="index.html" class="nav-brand" aria-label="ServiceHub Home">
+        <svg viewBox="0 0 40 40" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="10" fill="#2563EB"/>
+          <path d="M20 9L29.5 14.5V25.5L20 31L10.5 25.5V14.5L20 9Z" stroke="white" stroke-width="2.2" stroke-linejoin="round"/>
+          <circle cx="20" cy="20" r="3.5" fill="white"/>
+          <line x1="20" y1="9" x2="20" y2="16.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <line x1="29.5" y1="25.5" x2="23" y2="21.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <line x1="10.5" y1="25.5" x2="17" y2="21.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-name">Service<span>Hub</span></span>
+      </a>
+
+      <!-- Navigation Links -->
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#categories" class="nav-link">Categories</a></li>
+        <li><a href="login.html" class="nav-link">Login</a></li>
+      </ul>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <a href="signup.html" class="btn btn-sm btn-primary">Sign Up</a>
+        <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
           </svg>
-        </div>
-        <h1 class="brand-name">Service<span>Hub</span></h1>
+        </button>
       </div>
+    </nav>
+  </header>
 
-      <!-- Login Card -->
-      <div class="login-card">
-        <header class="card-header">
-          <h2 class="card-title">Welcome back</h2>
-          <p class="card-subtitle" id="role-subtitle">Sign in to book and track your service requests</p>
-        </header>
+  <main>
+    <!-- 2. Hero Section -->
+    <section class="hero-section" aria-labelledby="hero-heading">
+      <div class="hero-wrapper">
+        <div class="hero-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Verified Local Professionals</span>
+        </div>
+        
+        <h1 id="hero-heading" class="hero-title">Find the Right Service for You</h1>
+        <p class="hero-description">
+          Discover trusted service providers, compare services, and book with ease.
+        </p>
 
-        <!-- Role Selector (Customer / Merchant) -->
-        <fieldset class="role-selector" aria-label="Account Type Selection">
-          <legend class="visually-hidden">Choose Account Type</legend>
-          <div class="role-tabs" role="tablist">
-            <button 
-              type="button" 
-              role="tab" 
-              id="role-tab-customer" 
-              class="role-tab active" 
-              aria-selected="true" 
-              aria-controls="login-form" 
-              data-role="customer">
-              <svg class="tab-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" width="18" height="18">
-                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+        <!-- Search Bar -->
+        <form class="hero-search-form" id="search-form" role="search">
+          <div class="hero-search-box">
+            <span class="search-input-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
               </svg>
-              <span>Customer</span>
-            </button>
-            <button 
-              type="button" 
-              role="tab" 
-              id="role-tab-merchant" 
-              class="role-tab" 
-              aria-selected="false" 
-              aria-controls="login-form" 
-              data-role="merchant">
-              <svg class="tab-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" width="18" height="18">
-                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4zm3 1h6v4H7V5zm8 8v2h1a1 1 0 001-1v-1h-2zm-2 2H7v-2h6v2zm-8 0h1v-2H5v1a1 1 0 001 1z" clip-rule="evenodd"/>
-              </svg>
-              <span>Merchant</span>
+            </span>
+            <input 
+              type="search" 
+              id="search-input" 
+              class="hero-search-input" 
+              placeholder="Search services (e.g. cleaning, auto, plumbing)..." 
+              aria-label="Search services">
+            <button type="submit" class="btn btn-primary hero-search-btn">
+              <span>Search</span>
             </button>
           </div>
-        </fieldset>
+        </form>
 
-        <!-- Status Notification (Success/Error banner for demonstration) -->
-        <div id="status-message" class="status-banner" role="status" aria-live="polite" hidden></div>
+        <!-- Quick Suggestions -->
+        <div class="quick-tags">
+          <span>Popular:</span>
+          <button type="button" class="tag-btn" data-search="Cleaning">Cleaning</button>
+          <button type="button" class="tag-btn" data-search="Repair">Repair</button>
+          <button type="button" class="tag-btn" data-search="Automotive">Automotive</button>
+          <button type="button" class="tag-btn" data-search="Beauty">Beauty</button>
+          <button type="button" class="tag-btn" data-search="Pet">Pet</button>
+        </div>
+      </div>
+    </section>
 
-        <!-- Login Form -->
-        <form id="login-form" class="login-form" novalidate method="POST" action="#">
-          <!-- Hidden Role Input to pass role with form submit -->
-          <input type="hidden" name="user_role" id="user-role-input" value="customer">
+    <!-- 3. Categories Section -->
+    <section class="section-container" id="categories" aria-labelledby="categories-heading">
+      <header class="section-header">
+        <h2 id="categories-heading" class="section-title">Explore by Category</h2>
+        <p class="section-subtitle">Browse popular services offered by verified merchants</p>
+      </header>
 
-          <!-- Email Input Group -->
-          <div class="form-group" id="group-email">
-            <label for="email" class="form-label">Email address</label>
-            <div class="input-container">
-              <span class="input-icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect width="20" height="16" x="2" y="4" rx="2"/>
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                </svg>
-              </span>
-              <input 
-                type="email" 
-                id="email" 
-                name="email" 
-                class="form-input" 
-                placeholder="name@example.com" 
-                autocomplete="email" 
-                required 
-                aria-describedby="email-error">
-            </div>
-            <div id="email-error" class="input-feedback" aria-live="polite">
-              Please enter a valid email address.
-            </div>
+      <div class="categories-grid" role="list">
+        
+        <!-- Category: Home -->
+        <div class="category-card" data-category="Home" role="listitem" tabindex="0">
+          <div class="category-icon-box" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
           </div>
+          <h3 class="category-name">Home</h3>
+          <span class="category-count">140+ Services</span>
+        </div>
 
-          <!-- Password Input Group -->
-          <div class="form-group" id="group-password">
-            <div class="label-row">
-              <label for="password" class="form-label">Password</label>
-              <a href="#forgot-password" id="forgot-password-link" class="text-link forgot-link">Forgot password?</a>
+        <!-- Category: Beauty -->
+        <div class="category-card" data-category="Beauty" role="listitem" tabindex="0">
+          <div class="category-icon-box" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="6" cy="6" r="3"/>
+              <circle cx="6" cy="18" r="3"/>
+              <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+              <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+              <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+            </svg>
+          </div>
+          <h3 class="category-name">Beauty</h3>
+          <span class="category-count">95+ Services</span>
+        </div>
+
+        <!-- Category: Pet -->
+        <div class="category-card" data-category="Pet" role="listitem" tabindex="0">
+          <div class="category-icon-box" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="4" r="2"/>
+              <circle cx="18" cy="8" r="2"/>
+              <circle cx="20" cy="16" r="2"/>
+              <path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.8A3.5 3.5 0 0 1 5.5 10Z"/>
+            </svg>
+          </div>
+          <h3 class="category-name">Pet</h3>
+          <span class="category-count">60+ Services</span>
+        </div>
+
+        <!-- Category: Automotive -->
+        <div class="category-card" data-category="Automotive" role="listitem" tabindex="0">
+          <div class="category-icon-box" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="16" height="10" x="4" y="6" rx="2"/>
+              <circle cx="8" cy="16" r="2"/>
+              <circle cx="16" cy="16" r="2"/>
+              <path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/>
+            </svg>
+          </div>
+          <h3 class="category-name">Automotive</h3>
+          <span class="category-count">85+ Services</span>
+        </div>
+
+        <!-- Category: Education -->
+        <div class="category-card" data-category="Education" role="listitem" tabindex="0">
+          <div class="category-icon-box" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+          </div>
+          <h3 class="category-name">Education</h3>
+          <span class="category-count">70+ Services</span>
+        </div>
+
+        <!-- Category: Repair -->
+        <div class="category-card" data-category="Repair" role="listitem" tabindex="0">
+          <div class="category-icon-box" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <h3 class="category-name">Repair</h3>
+          <span class="category-count">110+ Services</span>
+        </div>
+
+        <!-- Category: Cleaning -->
+        <div class="category-card" data-category="Cleaning" role="listitem" tabindex="0">
+          <div class="category-icon-box" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+            </svg>
+          </div>
+          <h3 class="category-name">Cleaning</h3>
+          <span class="category-count">130+ Services</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. Featured Services Section -->
+    <section class="section-container" id="services" aria-labelledby="services-heading" style="padding-top: 0;">
+      <header class="section-header">
+        <h2 id="services-heading" class="section-title">Featured Services</h2>
+        <p class="section-subtitle">Top-rated services delivered by verified local merchants</p>
+      </header>
+
+      <div class="services-grid" id="services-grid">
+        
+        <!-- Service 1: Cleaning -->
+        <article class="service-card" data-category="Cleaning" data-title="Deep Home Cleaning">
+          <div class="service-img-wrapper">
+            <img class="service-img" src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80" alt="Home Deep Cleaning service" loading="lazy">
+            <span class="service-cat-badge">Cleaning</span>
+          </div>
+          <div class="service-content">
+            <div class="service-merchant">
+              <svg class="merchant-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              <span>SparkleClean Co.</span>
             </div>
-            <div class="input-container">
-              <span class="input-icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
-                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                </svg>
-              </span>
-              <input 
-                type="password" 
-                id="password" 
-                name="password" 
-                class="form-input has-toggle" 
-                placeholder="Enter your password" 
-                autocomplete="current-password" 
-                required 
-                aria-describedby="password-error">
-              <button 
-                type="button" 
-                id="toggle-password" 
-                class="password-toggle-btn" 
-                aria-label="Show password" 
-                aria-pressed="false">
-                <!-- Eye Open Icon -->
-                <svg class="eye-icon eye-show" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
-                  <circle cx="12" cy="12" r="3"/>
-                </svg>
-                <!-- Eye Slash Icon -->
-                <svg class="eye-icon eye-hide" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="m9.88 9.88 4.24 4.24m.56-4.24-4.24 4.24"/>
-                  <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/>
-                  <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/>
-                  <line x1="2" x2="22" y1="2" y2="22"/>
+            <h3 class="service-title">Deep Home Cleaning & Sanitization</h3>
+            
+            <div class="service-meta-row">
+              <div class="service-rating" aria-label="Rated 4.9 out of 5 stars">
+                <span class="star-icon" aria-hidden="true">&#9733;</span>
+                <span>4.9</span>
+                <span class="rating-count">(128)</span>
+              </div>
+              <div class="service-price">
+                $120 <span class="service-price-period">/ visit</span>
+              </div>
+            </div>
+
+            <div class="service-card-action">
+              <button type="button" class="btn-view-service" data-id="1">
+                <span>View Service</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14"/>
+                  <path d="m12 5 7 7-7 7"/>
                 </svg>
               </button>
             </div>
-            <div id="password-error" class="input-feedback" aria-live="polite">
-              Password cannot be empty.
+          </div>
+        </article>
+
+        <!-- Service 2: Repair / Plumbing -->
+        <article class="service-card" data-category="Repair" data-title="Plumbing Repair">
+          <div class="service-img-wrapper">
+            <img class="service-img" src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&w=600&q=80" alt="Plumbing and pipe repair service" loading="lazy">
+            <span class="service-cat-badge">Repair</span>
+          </div>
+          <div class="service-content">
+            <div class="service-merchant">
+              <svg class="merchant-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              <span>Express Plumbing Pros</span>
+            </div>
+            <h3 class="service-title">Emergency Plumbing & Pipe Repair</h3>
+            
+            <div class="service-meta-row">
+              <div class="service-rating" aria-label="Rated 4.8 out of 5 stars">
+                <span class="star-icon" aria-hidden="true">&#9733;</span>
+                <span>4.8</span>
+                <span class="rating-count">(94)</span>
+              </div>
+              <div class="service-price">
+                $85 <span class="service-price-period">/ hour</span>
+              </div>
+            </div>
+
+            <div class="service-card-action">
+              <button type="button" class="btn-view-service" data-id="2">
+                <span>View Service</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14"/>
+                  <path d="m12 5 7 7-7 7"/>
+                </svg>
+              </button>
             </div>
           </div>
+        </article>
 
-          <!-- Remember Me Checkbox -->
-          <div class="form-options">
-            <label class="checkbox-container">
-              <input type="checkbox" id="remember-me" name="remember_me" class="checkbox-input">
-              <span class="checkbox-box" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </span>
-              <span class="checkbox-label">Remember me for 30 days</span>
-            </label>
+        <!-- Service 3: Automotive -->
+        <article class="service-card" data-category="Automotive" data-title="Mobile Car Detailing">
+          <div class="service-img-wrapper">
+            <img class="service-img" src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=600&q=80" alt="Mobile auto detailing service" loading="lazy">
+            <span class="service-cat-badge">Automotive</span>
           </div>
+          <div class="service-content">
+            <div class="service-merchant">
+              <svg class="merchant-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              <span>Apex Auto Studio</span>
+            </div>
+            <h3 class="service-title">Mobile Interior & Exterior Car Detailing</h3>
+            
+            <div class="service-meta-row">
+              <div class="service-rating" aria-label="Rated 5.0 out of 5 stars">
+                <span class="star-icon" aria-hidden="true">&#9733;</span>
+                <span>5.0</span>
+                <span class="rating-count">(215)</span>
+              </div>
+              <div class="service-price">
+                $150 <span class="service-price-period">/ service</span>
+              </div>
+            </div>
 
-          <!-- Submit Button -->
-          <button type="submit" id="login-button" class="btn btn-primary">
-            <span class="btn-text">Sign In</span>
-            <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M5 12h14"/>
-              <path d="m12 5 7 7-7 7"/>
-            </svg>
-          </button>
-        </form>
+            <div class="service-card-action">
+              <button type="button" class="btn-view-service" data-id="3">
+                <span>View Service</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14"/>
+                  <path d="m12 5 7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </article>
 
-        <!-- Sign Up Link -->
-        <footer class="card-footer">
-          <p class="signup-prompt">
-            Don't have an account? 
-            <a href="signup.html" id="signup-link" class="text-link signup-link">Sign up</a>
-          </p>
-        </footer>
+        <!-- Service 4: Pet -->
+        <article class="service-card" data-category="Pet" data-title="Dog Grooming & Spa">
+          <div class="service-img-wrapper">
+            <img class="service-img" src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=600&q=80" alt="Dog grooming and bath service" loading="lazy">
+            <span class="service-cat-badge">Pet</span>
+          </div>
+          <div class="service-content">
+            <div class="service-merchant">
+              <svg class="merchant-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              <span>HappyPaws Grooming</span>
+            </div>
+            <h3 class="service-title">Full Pet Grooming, Bath & Nail Trim</h3>
+            
+            <div class="service-meta-row">
+              <div class="service-rating" aria-label="Rated 4.9 out of 5 stars">
+                <span class="star-icon" aria-hidden="true">&#9733;</span>
+                <span>4.9</span>
+                <span class="rating-count">(88)</span>
+              </div>
+              <div class="service-price">
+                $65 <span class="service-price-period">/ pet</span>
+              </div>
+            </div>
+
+            <div class="service-card-action">
+              <button type="button" class="btn-view-service" data-id="4">
+                <span>View Service</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14"/>
+                  <path d="m12 5 7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Service 5: Beauty -->
+        <article class="service-card" data-category="Beauty" data-title="Hair Styling & Coloring">
+          <div class="service-img-wrapper">
+            <img class="service-img" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=600&q=80" alt="Hair salon styling and cut service" loading="lazy">
+            <span class="service-cat-badge">Beauty</span>
+          </div>
+          <div class="service-content">
+            <div class="service-merchant">
+              <svg class="merchant-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              <span>Glow Beauty Lounge</span>
+            </div>
+            <h3 class="service-title">Custom Hair Styling, Cut & Coloring</h3>
+            
+            <div class="service-meta-row">
+              <div class="service-rating" aria-label="Rated 4.8 out of 5 stars">
+                <span class="star-icon" aria-hidden="true">&#9733;</span>
+                <span>4.8</span>
+                <span class="rating-count">(142)</span>
+              </div>
+              <div class="service-price">
+                $75 <span class="service-price-period">/ session</span>
+              </div>
+            </div>
+
+            <div class="service-card-action">
+              <button type="button" class="btn-view-service" data-id="5">
+                <span>View Service</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14"/>
+                  <path d="m12 5 7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Service 6: Education -->
+        <article class="service-card" data-category="Education" data-title="1-on-1 Academic Tutoring">
+          <div class="service-img-wrapper">
+            <img class="service-img" src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" alt="Private academic tutoring service" loading="lazy">
+            <span class="service-cat-badge">Education</span>
+          </div>
+          <div class="service-content">
+            <div class="service-merchant">
+              <svg class="merchant-check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              <span>BrightPath Learning</span>
+            </div>
+            <h3 class="service-title">1-on-1 Academic Tutoring (Math & Science)</h3>
+            
+            <div class="service-meta-row">
+              <div class="service-rating" aria-label="Rated 4.9 out of 5 stars">
+                <span class="star-icon" aria-hidden="true">&#9733;</span>
+                <span>4.9</span>
+                <span class="rating-count">(64)</span>
+              </div>
+              <div class="service-price">
+                $50 <span class="service-price-period">/ hour</span>
+              </div>
+            </div>
+
+            <div class="service-card-action">
+              <button type="button" class="btn-view-service" data-id="6">
+                <span>View Service</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14"/>
+                  <path d="m12 5 7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
       </div>
+    </section>
 
-      <!-- Minimal Brand Footer -->
-      <aside class="page-footer">
-        <p>&copy; 2026 ServiceHub Inc. All rights reserved.</p>
-      </aside>
-
-    </div>
+    <!-- 5. Call to Action Section -->
+    <section class="cta-section" aria-labelledby="cta-heading">
+      <div class="cta-banner">
+        <div class="cta-banner-content">
+          <h2 id="cta-heading" class="cta-title">Ready to Find Your Service?</h2>
+          <p class="cta-desc">
+            Connect with top-rated local professionals, read verified customer reviews, and get your tasks done with total confidence.
+          </p>
+          <div class="cta-btn-group">
+            <a href="#services" class="btn btn-cta-white" id="cta-explore-btn">
+              <span>Explore Services</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </a>
+            <a href="signup.html" class="btn btn-cta-ghost">Join ServiceHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <script src="app.js"></script>
+  <!-- 6. Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        
+        <!-- Brand Info -->
+        <div class="footer-brand">
+          <div class="nav-brand" style="margin-bottom: 0.75rem;">
+            <svg viewBox="0 0 40 40" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="10" fill="#2563EB"/>
+              <path d="M20 9L29.5 14.5V25.5L20 31L10.5 25.5V14.5L20 9Z" stroke="white" stroke-width="2.2" stroke-linejoin="round"/>
+              <circle cx="20" cy="20" r="3.5" fill="white"/>
+            </svg>
+            <span class="brand-name">Service<span>Hub</span></span>
+          </div>
+          <p class="footer-brand-desc">
+            The modern local service marketplace connecting customers with verified, professional merchants across home, automotive, repair, and lifestyle services.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#home" class="footer-link">Home</a></li>
+            <li><a href="#services" class="footer-link">Services</a></li>
+            <li><a href="#categories" class="footer-link">Categories</a></li>
+            <li><a href="login.html" class="footer-link">Customer Login</a></li>
+            <li><a href="signup.html" class="footer-link">Customer Sign Up</a></li>
+          </ul>
+        </div>
+
+        <!-- Merchant Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">For Merchants</h4>
+          <ul class="footer-links">
+            <li><a href="merchant-signup.html" class="footer-link">Register as Merchant</a></li>
+            <li><a href="login.html" class="footer-link">Merchant Login</a></li>
+            <li><a href="#services" class="footer-link">How It Works</a></li>
+            <li><a href="#categories" class="footer-link">Service Categories</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Contact Information</h4>
+          <ul class="footer-contact-list">
+            <li class="contact-item">
+              <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              <span>support@servicehub.com</span>
+            </li>
+            <li class="contact-item">
+              <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>+1 (800) 555-SERV (7378)</span>
+            </li>
+            <li class="contact-item">
+              <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              <span>Mon - Fri: 8:00 AM - 7:00 PM EST</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 ServiceHub Inc. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Terms of Service</a>
+          <a href="#" class="footer-link">Trust &amp; Safety</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Simple "View Service" Preview Modal -->
+  <div class="service-modal-backdrop" id="service-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="service-modal">
+      <button type="button" class="modal-close-btn" id="modal-close" aria-label="Close details">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <span class="service-cat-badge" id="modal-category" style="position: static; display: inline-block; margin-bottom: 0.75rem;">Category</span>
+      <h3 class="service-title" id="modal-title" style="font-size: 1.25rem; margin-bottom: 0.5rem;">Service Name</h3>
+      <p class="service-merchant" id="modal-merchant" style="margin-bottom: 1rem;">
+        <span>Merchant Name</span>
+      </p>
+      <p id="modal-description" style="font-size: var(--font-size-sm); color: var(--color-text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+        Service description and highlights.
+      </p>
+      <div class="service-meta-row" style="margin-bottom: 1.5rem;">
+        <div class="service-rating" id="modal-rating">
+          <span class="star-icon">&#9733;</span>
+          <span id="modal-rating-val">4.9</span>
+        </div>
+        <div class="service-price" id="modal-price">$120</div>
+      </div>
+      <button type="button" class="btn btn-primary" id="modal-close-action" style="width: 100%;">
+        <span>Close Preview</span>
+      </button>
+    </div>
+  </div>
+
+  <script src="home.js"></script>
 </body>
 </html>

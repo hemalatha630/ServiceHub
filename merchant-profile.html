@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View verified merchant profiles, services offered, pricing, business hours, and customer reviews on ServiceHub.">
+  <title>Merchant Profile &bull; ServiceHub</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="site-header">
+    <nav class="nav-container" aria-label="Main Navigation">
+      <a href="index.html" class="nav-brand" aria-label="ServiceHub Home">
+        <svg viewBox="0 0 40 40" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="10" fill="#2563EB"/>
+          <path d="M20 9L29.5 14.5V25.5L20 31L10.5 25.5V14.5L20 9Z" stroke="white" stroke-width="2.2" stroke-linejoin="round"/>
+          <circle cx="20" cy="20" r="3.5" fill="white"/>
+          <line x1="20" y1="9" x2="20" y2="16.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <line x1="29.5" y1="25.5" x2="23" y2="21.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <line x1="10.5" y1="25.5" x2="17" y2="21.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-name">Service<span>Hub</span></span>
+      </a>
+
+      <!-- Navigation Links -->
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="merchants.html" class="nav-link active" aria-current="page">Services</a></li>
+        <li><a href="categories.html" class="nav-link">Categories</a></li>
+        <li><a href="login.html" class="nav-link">Login</a></li>
+      </ul>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <a href="signup.html" class="btn btn-sm btn-primary">Sign Up</a>
+        <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <nav class="profile-breadcrumb-bar" aria-label="Breadcrumb">
+    <ol class="profile-breadcrumb-list">
+      <li><a href="index.html">Home</a></li>
+      <li class="breadcrumb-separator" aria-hidden="true">/</li>
+      <li><a href="merchants.html">Service Providers</a></li>
+      <li class="breadcrumb-separator" aria-hidden="true">/</li>
+      <li class="breadcrumb-current" id="breadcrumb-current-name">SparkleClean Co.</li>
+    </ol>
+  </nav>
+
+  <main>
+    <!-- 1. Merchant Header & Hero Banner -->
+    <section class="profile-banner-wrap" aria-hidden="true">
+      <div class="profile-banner-pattern"></div>
+    </section>
+
+    <div class="profile-header-container">
+      <header class="profile-header-card">
+        <div class="profile-header-top">
+          
+          <!-- Identity (Avatar + Name + Meta) -->
+          <div class="profile-identity-group">
+            <div class="profile-avatar-large" id="profile-avatar" aria-hidden="true">
+              SC
+            </div>
+            
+            <div class="profile-info-col">
+              <div class="profile-badge-row">
+                <span class="merchant-cat-pill theme-cleaning" id="profile-cat-pill">Cleaning</span>
+                <span class="profile-verified-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                  <span>Verified Merchant</span>
+                </span>
+              </div>
+
+              <h1 class="profile-title-name" id="profile-biz-name">SparkleClean Co.</h1>
+              
+              <div class="profile-meta-row">
+                <span class="profile-rating-badge" id="profile-rating-badge">
+                  <span aria-hidden="true">&#9733;</span>
+                  <span id="profile-rating-val">4.9</span>
+                  <span style="font-weight: 500; font-size: var(--font-size-xs);" id="profile-review-count">(142 reviews)</span>
+                </span>
+
+                <span class="profile-location-text" id="profile-location-text">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                  <span id="profile-loc-val">Central City, Metro Area • 1.8 mi</span>
+                </span>
+
+                <span style="color: var(--color-text-subtle);">&bull;</span>
+                <span id="profile-owner-val">Owner: Elena Rostova</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Main Action Buttons -->
+          <div class="profile-header-actions">
+            <a href="#services-section" class="btn btn-primary" id="btn-book-service">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+              <span>View Services</span>
+            </a>
+            <a href="#contact-section" class="btn btn-secondary" id="btn-contact-provider">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>Contact Merchant</span>
+            </a>
+          </div>
+
+        </div>
+
+        <p class="profile-desc-summary" id="profile-short-desc">
+          Residential and commercial deep cleaning specialists with over 8 years of local experience, vetted crews, and eco-friendly supplies.
+        </p>
+      </header>
+    </div>
+
+    <!-- 2-Column Content Layout -->
+    <div class="profile-layout-container">
+      
+      <!-- Left Column: About, Services, Reviews -->
+      <div class="profile-main-col">
+        
+        <!-- 2. About Merchant -->
+        <section class="profile-card" id="about-section" aria-labelledby="heading-about">
+          <div class="profile-card-header">
+            <h2 class="profile-card-title" id="heading-about">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="16" x2="12" y2="12"/>
+                <line x1="12" y1="8" x2="12.01" y2="8"/>
+              </svg>
+              <span>About Merchant</span>
+            </h2>
+          </div>
+
+          <div class="about-text-content" id="profile-full-about">
+            <p>
+              Founded in 2018 by Elena Rostova, SparkleClean Co. provides superior residential and commercial sanitization services throughout Central City and adjacent neighborhoods. We believe that a truly clean space fosters well-being, clarity, and peace of mind.
+            </p>
+            <p>
+              Every technician on our team undergoes rigorous background screening, in-depth chemical safety training, and hands-on apprenticeship. We exclusively use hospital-grade, EPA-certified, and biodegradable cleaning solutions that are completely safe for households with young children, cats, and dogs.
+            </p>
+          </div>
+
+          <!-- Basic Business Information Grid -->
+          <div class="business-facts-grid" id="profile-facts-grid">
+            <div class="business-fact-item">
+              <span class="fact-item-label">Experience</span>
+              <span class="fact-item-value" id="fact-exp">8+ Years in Business</span>
+            </div>
+            <div class="business-fact-item">
+              <span class="fact-item-label">Background Check</span>
+              <span class="fact-item-value" id="fact-check">100% Verified Crew</span>
+            </div>
+            <div class="business-fact-item">
+              <span class="fact-item-label">Insurance</span>
+              <span class="fact-item-value" id="fact-ins">$1M General Liability</span>
+            </div>
+            <div class="business-fact-item">
+              <span class="fact-item-label">Response Time</span>
+              <span class="fact-item-value" id="fact-resp">Typically &lt; 15 mins</span>
+            </div>
+            <div class="business-fact-item">
+              <span class="fact-item-label">Team Size</span>
+              <span class="fact-item-value" id="fact-team">12 Certified Specialists</span>
+            </div>
+            <div class="business-fact-item">
+              <span class="fact-item-label">Languages</span>
+              <span class="fact-item-value" id="fact-lang">English, Spanish</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. Services Offered -->
+        <section class="profile-card" id="services-section" aria-labelledby="heading-services">
+          <div class="profile-card-header">
+            <h2 class="profile-card-title" id="heading-services">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="20" height="14" x="2" y="5" rx="2"/>
+                <line x1="2" y1="10" x2="22" y2="10"/>
+              </svg>
+              <span>Services Offered</span>
+            </h2>
+            <span style="font-size: var(--font-size-xs); font-weight: 600; color: var(--color-primary);" id="services-count-badge">3 Services Available</span>
+          </div>
+
+          <div class="services-offered-list" id="services-list" role="list">
+            
+            <!-- Service 1 -->
+            <article class="profile-service-card" role="listitem">
+              <div class="service-card-left">
+                <div class="service-icon-box" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+                  </svg>
+                </div>
+                <div class="service-card-details">
+                  <h3 class="service-item-title">Standard Residential Deep Clean</h3>
+                  <p class="service-item-desc">
+                    Comprehensive top-to-bottom sanitize of living areas, kitchen degreasing, bathroom scrubbing, dusting, and floor polishing.
+                  </p>
+                  <div class="service-meta-badges">
+                    <span class="service-duration-badge">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+                      <span>2 hours</span>
+                    </span>
+                    <span class="service-duration-badge">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Supplies Included</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="service-card-right">
+                <span class="service-item-price">$65</span>
+                <button type="button" class="btn btn-sm btn-secondary btn-service-details" data-service-idx="0">
+                  <span>View Details</span>
+                </button>
+              </div>
+            </article>
+
+            <!-- Service 2 -->
+            <article class="profile-service-card" role="listitem">
+              <div class="service-card-left">
+                <div class="service-icon-box" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                </div>
+                <div class="service-card-details">
+                  <h3 class="service-item-title">Move-In / Move-Out Sanitization</h3>
+                  <p class="service-item-desc">
+                    Rigorous empty-home overhaul designed for full security deposit return. Inside cabinets, oven, fridge, baseboards, and window tracks.
+                  </p>
+                  <div class="service-meta-badges">
+                    <span class="service-duration-badge">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+                      <span>3.5 hours</span>
+                    </span>
+                    <span class="service-duration-badge">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Deposit Return Guarantee</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="service-card-right">
+                <span class="service-item-price">$140</span>
+                <button type="button" class="btn btn-sm btn-secondary btn-service-details" data-service-idx="1">
+                  <span>View Details</span>
+                </button>
+              </div>
+            </article>
+
+            <!-- Service 3 -->
+            <article class="profile-service-card" role="listitem">
+              <div class="service-card-left">
+                <div class="service-icon-box" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/>
+                    <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/>
+                    <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/>
+                  </svg>
+                </div>
+                <div class="service-card-details">
+                  <h3 class="service-item-title">Eco Commercial Office Maintenance</h3>
+                  <p class="service-item-desc">
+                    Tailored after-hours sanitizing for studios, clinics, and offices. Trash removal, workstation disinfection, glass clean, and vacuuming.
+                  </p>
+                  <div class="service-meta-badges">
+                    <span class="service-duration-badge">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+                      <span>4 hours</span>
+                    </span>
+                    <span class="service-duration-badge">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Flexible Scheduling</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="service-card-right">
+                <span class="service-item-price">$190</span>
+                <button type="button" class="btn btn-sm btn-secondary btn-service-details" data-service-idx="2">
+                  <span>View Details</span>
+                </button>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- 5. Customer Reviews -->
+        <section class="profile-card" id="reviews-section" aria-labelledby="heading-reviews">
+          <div class="profile-card-header">
+            <h2 class="profile-card-title" id="heading-reviews">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+              <span>Customer Reviews</span>
+            </h2>
+          </div>
+
+          <!-- Overall Rating Breakdown Card -->
+          <div class="reviews-summary-card">
+            <div class="rating-score-box">
+              <span class="rating-big-number" id="review-score-big">4.9</span>
+              <div class="rating-stars-gold" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <span class="rating-score-sub" id="review-score-count">Based on 142 reviews</span>
+            </div>
+
+            <div class="rating-bars-list">
+              <div class="rating-bar-row">
+                <span>5 ★</span>
+                <div class="bar-track"><div class="bar-fill" style="width: 92%;"></div></div>
+                <span>92%</span>
+              </div>
+              <div class="rating-bar-row">
+                <span>4 ★</span>
+                <div class="bar-track"><div class="bar-fill" style="width: 6%;"></div></div>
+                <span>6%</span>
+              </div>
+              <div class="rating-bar-row">
+                <span>3 ★</span>
+                <div class="bar-track"><div class="bar-fill" style="width: 2%;"></div></div>
+                <span>2%</span>
+              </div>
+              <div class="rating-bar-row">
+                <span>2 ★</span>
+                <div class="bar-track"><div class="bar-fill" style="width: 0%;"></div></div>
+                <span>0%</span>
+              </div>
+              <div class="rating-bar-row">
+                <span>1 ★</span>
+                <div class="bar-track"><div class="bar-fill" style="width: 0%;"></div></div>
+                <span>0%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Customer Review Cards List -->
+          <div class="customer-reviews-list" id="customer-reviews-list">
+            
+            <article class="customer-review-card">
+              <div class="reviewer-meta-row">
+                <div class="reviewer-profile-info">
+                  <div class="reviewer-avatar-init">JM</div>
+                  <div>
+                    <h3 class="reviewer-name">Jessica Miller</h3>
+                    <span class="review-date">September 14, 2026 &bull; Verified Customer</span>
+                  </div>
+                </div>
+                <div class="rating-stars-gold" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              </div>
+              <p class="review-comment-text">
+                Elena and her crew were exceptional! My apartment has never looked this immaculate. They arrived exactly on time, were extremely courteous, and used genuinely non-toxic supplies that didn't bother my asthmatic cat at all. Will definitely book bi-weekly!
+              </p>
+            </article>
+
+            <article class="customer-review-card">
+              <div class="reviewer-meta-row">
+                <div class="reviewer-profile-info">
+                  <div class="reviewer-avatar-init">DK</div>
+                  <div>
+                    <h3 class="reviewer-name">David Kaufman</h3>
+                    <span class="review-date">August 28, 2026 &bull; Verified Customer</span>
+                  </div>
+                </div>
+                <div class="rating-stars-gold" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              </div>
+              <p class="review-comment-text">
+                Booked their move-out deep clean on relatively short notice. They brought all specialized gear, took care of stubborn kitchen grease, and our landlord returned 100% of our deposit with zero complaints. Well worth every dollar.
+              </p>
+            </article>
+
+            <article class="customer-review-card">
+              <div class="reviewer-meta-row">
+                <div class="reviewer-profile-info">
+                  <div class="reviewer-avatar-init">ST</div>
+                  <div>
+                    <h3 class="reviewer-name">Samantha Taylor</h3>
+                    <span class="review-date">August 12, 2026 &bull; Verified Customer</span>
+                  </div>
+                </div>
+                <div class="rating-stars-gold" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              </div>
+              <p class="review-comment-text">
+                Prompt communication from quote to completion. Transparent pricing with no surprises. They even went the extra mile on the bathroom tile grout. Highly recommend SparkleClean to anyone in Central City.
+              </p>
+            </article>
+
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Right Column: Availability, Contact Info, ServiceHub Guarantee -->
+      <aside class="profile-sidebar-col" aria-label="Merchant details and availability">
+        
+        <!-- 4. Availability Schedule Card -->
+        <section class="profile-card" id="availability-section" aria-labelledby="heading-availability">
+          <div class="profile-card-header">
+            <h2 class="profile-card-title" id="heading-availability">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 14 14"/>
+              </svg>
+              <span>Availability</span>
+            </h2>
+          </div>
+
+          <div class="availability-badge-alert" id="availability-alert">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            <span id="next-slot-text">Next Open Slot: Tomorrow at 10:00 AM</span>
+          </div>
+
+          <div class="availability-schedule-table" id="schedule-table">
+            <div class="schedule-row">
+              <span class="schedule-day">Monday</span>
+              <span class="schedule-time">8:00 AM – 6:00 PM</span>
+            </div>
+            <div class="schedule-row">
+              <span class="schedule-day">Tuesday</span>
+              <span class="schedule-time">8:00 AM – 6:00 PM</span>
+            </div>
+            <div class="schedule-row">
+              <span class="schedule-day">Wednesday</span>
+              <span class="schedule-time">8:00 AM – 6:00 PM</span>
+            </div>
+            <div class="schedule-row">
+              <span class="schedule-day">Thursday</span>
+              <span class="schedule-time">8:00 AM – 6:00 PM</span>
+            </div>
+            <div class="schedule-row">
+              <span class="schedule-day">Friday</span>
+              <span class="schedule-time">8:00 AM – 6:00 PM</span>
+            </div>
+            <div class="schedule-row">
+              <span class="schedule-day">Saturday</span>
+              <span class="schedule-time">9:00 AM – 4:00 PM</span>
+            </div>
+            <div class="schedule-row">
+              <span class="schedule-day">Sunday</span>
+              <span class="schedule-time schedule-closed">Closed (Emergency Only)</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. Contact Information Card -->
+        <section class="profile-card" id="contact-section" aria-labelledby="heading-contact">
+          <div class="profile-card-header">
+            <h2 class="profile-card-title" id="heading-contact">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>Contact Information</span>
+            </h2>
+          </div>
+
+          <div class="contact-items-list">
+            
+            <div class="contact-detail-row">
+              <div class="contact-icon-bubble" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <div class="contact-content-col">
+                <span class="contact-col-label">Phone</span>
+                <a href="tel:+15553492810" class="contact-col-value" id="contact-phone-link">+1 (555) 349-2810</a>
+              </div>
+            </div>
+
+            <div class="contact-detail-row">
+              <div class="contact-icon-bubble" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2"/>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+              </div>
+              <div class="contact-content-col">
+                <span class="contact-col-label">Email</span>
+                <a href="mailto:elena@sparklecleanco.com" class="contact-col-value" id="contact-email-link">elena@sparklecleanco.com</a>
+              </div>
+            </div>
+
+            <div class="contact-detail-row">
+              <div class="contact-icon-bubble" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div class="contact-content-col">
+                <span class="contact-col-label">Service Area</span>
+                <span class="contact-col-value" id="contact-address-val">Central City, Metro Area (25 mi radius)</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div style="margin-top: 1.5rem;">
+            <a href="#services-section" class="btn btn-primary" style="width: 100%;" id="sidebar-cta-btn">
+              <span>Book a Service</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- ServiceHub Trust & Guarantee Card -->
+        <section class="profile-card" aria-label="ServiceHub Guarantees">
+          <div class="trust-badges-list">
+            <div class="trust-badge-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Satisfaction Guaranteed:</strong> Not pleased with the quality? We'll make it right.</span>
+            </div>
+            <div class="trust-badge-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Verified Credentials:</strong> Business licenses and background checks verified by ServiceHub.</span>
+            </div>
+            <div class="trust-badge-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Transparent Pricing:</strong> Upfront starting rates with no surprise hidden fees.</span>
+            </div>
+          </div>
+        </section>
+
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Service Details Modal Dialog -->
+  <div class="service-modal-backdrop" id="service-details-modal" role="dialog" aria-modal="true" aria-labelledby="modal-service-title" hidden>
+    <div class="service-modal">
+      <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Close service details">&times;</button>
+      
+      <div class="service-details-meta-pill-group">
+        <span class="merchant-cat-pill theme-cleaning" id="modal-service-category">Cleaning</span>
+        <span class="service-duration-badge" id="modal-service-duration">2 hours</span>
+      </div>
+
+      <h3 class="service-title" id="modal-service-title" style="font-size: 1.375rem; margin-bottom: 0.5rem;">Service Name</h3>
+      <div class="service-price" id="modal-service-price" style="font-size: 1.5rem; margin-bottom: 1rem;">$65</div>
+
+      <p id="modal-service-desc" style="font-size: var(--font-size-sm); color: var(--color-text-muted); line-height: 1.6; margin-bottom: 1rem;">
+        Detailed description of the service.
+      </p>
+
+      <h4 style="font-size: var(--font-size-sm); font-weight: 700; color: var(--color-text-main); margin-bottom: 0.5rem;">What's Included:</h4>
+      <ul class="service-modal-feature-list" id="modal-service-features">
+        <li class="service-modal-feature-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>All eco-certified supplies and tools provided</span>
+        </li>
+        <li class="service-modal-feature-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Full checklist inspection upon completion</span>
+        </li>
+        <li class="service-modal-feature-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Guaranteed satisfaction warranty</span>
+        </li>
+      </ul>
+
+      <div style="display: flex; gap: 0.75rem; margin-top: 1.25rem;">
+        <button type="button" class="btn btn-secondary" id="modal-close-action" style="flex: 1;">Close Details</button>
+        <a href="#contact-section" class="btn btn-primary" id="modal-inquire-action" style="flex: 1; text-align: center;">Inquire With Merchant</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        
+        <!-- Brand Info -->
+        <div class="footer-brand">
+          <div class="nav-brand" style="margin-bottom: 0.75rem;">
+            <svg viewBox="0 0 40 40" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="10" fill="#2563EB"/>
+              <path d="M20 9L29.5 14.5V25.5L20 31L10.5 25.5V14.5L20 9Z" stroke="white" stroke-width="2.2" stroke-linejoin="round"/>
+              <circle cx="20" cy="20" r="3.5" fill="white"/>
+            </svg>
+            <span class="brand-name">Service<span>Hub</span></span>
+          </div>
+          <p class="footer-brand-desc">
+            The modern local service marketplace connecting customers with verified, professional merchants across home, automotive, repair, and lifestyle services.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="merchants.html" class="footer-link">Service Providers</a></li>
+            <li><a href="categories.html" class="footer-link">Categories</a></li>
+            <li><a href="login.html" class="footer-link">Customer Login</a></li>
+            <li><a href="signup.html" class="footer-link">Customer Sign Up</a></li>
+          </ul>
+        </div>
+
+        <!-- Merchant Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">For Merchants</h4>
+          <ul class="footer-links">
+            <li><a href="merchant-signup.html" class="footer-link">Register as Merchant</a></li>
+            <li><a href="login.html" class="footer-link">Merchant Login</a></li>
+            <li><a href="categories.html" class="footer-link">Category Guidelines</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Contact Information</h4>
+          <ul class="footer-contact-list">
+            <li class="contact-item">
+              <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              <span>support@servicehub.com</span>
+            </li>
+            <li class="contact-item">
+              <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>+1 (800) 555-SERV (7378)</span>
+            </li>
+            <li class="contact-item">
+              <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              <span>Mon - Fri: 8:00 AM - 7:00 PM EST</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 ServiceHub Inc. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Terms of Service</a>
+          <a href="#" class="footer-link">Trust &amp; Safety</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="merchant-profile.js"></script>
+</body>
+</html>

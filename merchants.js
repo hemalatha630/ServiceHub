@@ -271,12 +271,17 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   }
 
-  // Attach modal listeners to "View Profile" buttons
+  // "View Profile" buttons navigate naturally to merchant-profile.html?id=...
+  // Modal preview is preserved if needed as fallback
   document.querySelectorAll('.btn-view-profile').forEach(btn => {
     btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const card = btn.closest('.merchant-card');
-      openProfileModal(card);
+      const href = btn.getAttribute('href');
+      if (!href || href === '#') {
+        e.preventDefault();
+        const card = btn.closest('.merchant-card');
+        openProfileModal(card);
+      }
+      // If href is present (e.g. merchant-profile.html?id=1), allows natural navigation to the profile page
     });
   });
 

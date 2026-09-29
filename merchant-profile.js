@@ -383,9 +383,9 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="service-card-right">
           <span class="service-item-price">${srv.price}</span>
-          <button type="button" class="btn btn-sm btn-secondary btn-service-details" data-service-idx="${idx}">
+          <a href="service-details.html?id=${srv.id}" class="btn btn-sm btn-secondary btn-service-details">
             <span>View Details</span>
-          </button>
+          </a>
         </div>
       `;
       servicesListEl.appendChild(card);

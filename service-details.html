@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View comprehensive service details, pricing, duration, what's included, merchant credentials, availability, and customer reviews on ServiceHub.">
+  <title>Service Details &bull; ServiceHub</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 1. Navbar -->
+  <header class="site-header">
+    <nav class="nav-container" aria-label="Main Navigation">
+      <a href="index.html" class="nav-brand" aria-label="ServiceHub Home">
+        <svg viewBox="0 0 40 40" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="10" fill="#2563EB"/>
+          <path d="M20 9L29.5 14.5V25.5L20 31L10.5 25.5V14.5L20 9Z" stroke="white" stroke-width="2.2" stroke-linejoin="round"/>
+          <circle cx="20" cy="20" r="3.5" fill="white"/>
+          <line x1="20" y1="9" x2="20" y2="16.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <line x1="29.5" y1="25.5" x2="23" y2="21.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <line x1="10.5" y1="25.5" x2="17" y2="21.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-name">Service<span>Hub</span></span>
+      </a>
+
+      <!-- Navigation Links -->
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="merchants.html" class="nav-link active" aria-current="page">Services</a></li>
+        <li><a href="categories.html" class="nav-link">Categories</a></li>
+        <li><a href="login.html" class="nav-link">Login</a></li>
+      </ul>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <!-- Cart Badge Icon -->
+        <button type="button" class="btn btn-sm btn-secondary" id="nav-cart-btn" aria-label="View Cart" style="display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.5rem 0.75rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="8" cy="21" r="1"/>
+            <circle cx="19" cy="21" r="1"/>
+            <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+          </svg>
+          <span id="nav-cart-count" style="background-color: var(--color-primary); color: #ffffff; border-radius: var(--radius-full); font-size: 0.7rem; font-weight: 700; padding: 0.1rem 0.4rem;">0</span>
+        </button>
+
+        <a href="signup.html" class="btn btn-sm btn-primary">Sign Up</a>
+        
+        <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <nav class="profile-breadcrumb-bar" aria-label="Breadcrumb">
+    <ol class="profile-breadcrumb-list">
+      <li><a href="index.html">Home</a></li>
+      <li class="breadcrumb-separator" aria-hidden="true">/</li>
+      <li><a href="merchants.html">Services</a></li>
+      <li class="breadcrumb-separator" aria-hidden="true">/</li>
+      <li><a href="merchants.html?category=Cleaning" id="breadcrumb-category">Cleaning</a></li>
+      <li class="breadcrumb-separator" aria-hidden="true">/</li>
+      <li class="breadcrumb-current" id="breadcrumb-service-title">Standard Residential Deep Clean</li>
+    </ol>
+  </nav>
+
+  <main class="service-details-container">
+    <div class="service-details-layout">
+      
+      <!-- Left Column: Service Media, Information, Description, What's Included, Reviews, Related Services -->
+      <div class="service-details-main">
+        
+        <!-- 1. Service Hero Image / Visual Presentation -->
+        <div class="service-hero-visual">
+          <img 
+            id="service-hero-img" 
+            class="service-hero-img" 
+            src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80" 
+            alt="Service demonstration image" 
+            loading="eager">
+          <div class="service-hero-overlay">
+            <div class="service-hero-tags">
+              <span class="service-tag-pill" id="service-hero-category-tag">Cleaning & Sanitation</span>
+              <span class="service-tag-pill" id="service-hero-duration-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 2px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+                <span id="hero-duration-val">2 Hours</span>
+              </span>
+              <span class="service-tag-pill" style="color: #065f46; background-color: #ecfdf5;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 2px;"><polyline points="20 6 9 17 4 12"/></svg>
+                Verified Provider
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1. Service Information Card -->
+        <article class="service-header-card">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span class="merchant-cat-pill theme-cleaning" id="service-cat-pill">Cleaning</span>
+            <span style="font-size: var(--font-size-xs); color: var(--color-text-subtle);">&bull;</span>
+            <span style="font-size: var(--font-size-xs); color: var(--color-text-muted);" id="service-code-label">Service ID: #SRV-101</span>
+          </div>
+
+          <h1 class="service-page-title" id="service-title">Standard Residential Deep Clean &amp; Sanitization</h1>
+
+          <!-- Merchant Attribution Row -->
+          <div class="service-merchant-row">
+            <div class="service-merchant-identity">
+              <div class="service-merchant-avatar" id="merchant-avatar" aria-hidden="true">
+                SC
+              </div>
+              <div>
+                <a href="merchant-profile.html?id=1" class="service-merchant-link" id="merchant-profile-link">
+                  <span id="merchant-name-val">SparkleClean Co.</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="Verified Merchant">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
+                </a>
+                <span style="font-size: var(--font-size-xs); color: var(--color-text-muted);" id="merchant-owner-val">Owner: Elena Rostova</span>
+              </div>
+            </div>
+
+            <!-- Rating badge -->
+            <div class="profile-rating-badge" id="service-rating-badge">
+              <span aria-hidden="true">&#9733;</span>
+              <span id="service-rating-val">4.9</span>
+              <span style="font-weight: 500; font-size: var(--font-size-xs);" id="service-review-count">(142 reviews)</span>
+            </div>
+          </div>
+
+          <!-- Quick Meta Highlights -->
+          <div class="service-quick-meta-bar">
+            <div class="service-meta-chip">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 14 14"/>
+              </svg>
+              <span>Duration: <strong id="service-duration-val">2 hours</strong></span>
+            </div>
+
+            <div class="service-meta-chip">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+              <span>Instant Confirmation</span>
+            </div>
+
+            <div class="service-meta-chip">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+              </svg>
+              <span>100% Satisfaction Guarantee</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. Detailed Service Description & What is Included -->
+        <article class="service-desc-card">
+          <div>
+            <h2 class="section-subheading">Service Overview</h2>
+            <p class="service-desc-paragraph" id="service-description">
+              Our Standard Residential Deep Clean is a comprehensive, room-by-room treatment specifically formulated to eliminate deep-seated grime, allergens, and bacteria. Designed for modern living spaces, our vetted two-person specialist crew arrives fully equipped with hospital-grade, EPA-certified botanical detergents and HEPA micro-filtration vacuums.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="section-subheading">What is Included in this Service</h3>
+            <div class="included-checklist-grid" id="service-included-grid">
+              <div class="included-checklist-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Kitchen stovetop degreasing &amp; exterior appliance polishing</span>
+              </div>
+              <div class="included-checklist-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Full bathroom tile, grout scrubbing, tub, and glass disinfection</span>
+              </div>
+              <div class="included-checklist-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Dusting of all flat surfaces, picture frames, and baseboards</span>
+              </div>
+              <div class="included-checklist-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>HEPA vacuuming of carpets, rugs, and hard floor steam mopping</span>
+              </div>
+              <div class="included-checklist-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>All eco-certified non-toxic cleaning supplies &amp; tools provided</span>
+              </div>
+              <div class="included-checklist-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Final quality checklist walkthrough with customer sign-off</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Simple Preparation Steps -->
+          <div>
+            <h3 class="section-subheading">How It Works &amp; Simple Preparation</h3>
+            <div class="prep-steps-list">
+              <div class="prep-step-row">
+                <div class="prep-step-number">1</div>
+                <div class="prep-step-content">
+                  <h4>Select Your Slot</h4>
+                  <p>Choose your preferred day and arrival window on the booking card.</p>
+                </div>
+              </div>
+              <div class="prep-step-row">
+                <div class="prep-step-number">2</div>
+                <div class="prep-step-content">
+                  <h4>Vetted Team Arrives</h4>
+                  <p>The merchant brings all supplies, equipment, and eco-friendly products directly to you.</p>
+                </div>
+              </div>
+              <div class="prep-step-row">
+                <div class="prep-step-number">3</div>
+                <div class="prep-step-content">
+                  <h4>Quality Inspection &amp; Approval</h4>
+                  <p>Review the completed work. ServiceHub's satisfaction guarantee ensures 100% peace of mind.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. Customer Reviews Section -->
+        <section class="profile-card" aria-labelledby="heading-service-reviews">
+          <div class="profile-card-header">
+            <h2 class="profile-card-title" id="heading-service-reviews">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+              <span>Customer Reviews for this Service</span>
+            </h2>
+          </div>
+
+          <!-- Rating Breakdown Card -->
+          <div class="reviews-summary-card">
+            <div class="rating-score-box">
+              <span class="rating-big-number" id="review-summary-score">4.9</span>
+              <div class="rating-stars-gold" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <span class="rating-score-sub" id="review-summary-count">Based on 142 reviews</span>
+            </div>
+
+            <div class="rating-bars-list">
+              <div class="rating-bar-row">
+                <span>5 ★</span>
+                <div class="bar-track"><div class="bar-fill" style="width: 94%;"></div></div>
+                <span>94%</span>
+              </div>
+              <div class="rating-bar-row">
+                <span>4 ★</span>
+                <div class="bar-track"><div class="bar-fill" style="width: 5%;"></div></div>
+                <span>5%</span>
+              </div>
+              <div class="rating-bar-row">
+                <span>3 ★</span>
+                <div class="bar-track"><div class="bar-fill" style="width: 1%;"></div></div>
+                <span>1%</span>
+              </div>
+              <div class="rating-bar-row">
+                <span>2 ★</span>
+                <div class="bar-track"><div class="bar-fill" style="width: 0%;"></div></div>
+                <span>0%</span>
+              </div>
+              <div class="rating-bar-row">
+                <span>1 ★</span>
+                <div class="bar-track"><div class="bar-fill" style="width: 0%;"></div></div>
+                <span>0%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sample Reviews -->
+          <div class="customer-reviews-list" id="service-reviews-list">
+            <article class="customer-review-card">
+              <div class="reviewer-meta-row">
+                <div class="reviewer-profile-info">
+                  <div class="reviewer-avatar-init">JM</div>
+                  <div>
+                    <h3 class="reviewer-name">Jessica Miller</h3>
+                    <span class="review-date">September 14, 2026 &bull; Verified Booking</span>
+                  </div>
+                </div>
+                <div class="rating-stars-gold">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              </div>
+              <p class="review-comment-text">
+                Booked this deep clean and was completely blown away. Elena and her assistant arrived punctually with modern eco equipment. The oven and bathroom grout look brand new. 10/10 experience!
+              </p>
+            </article>
+
+            <article class="customer-review-card">
+              <div class="reviewer-meta-row">
+                <div class="reviewer-profile-info">
+                  <div class="reviewer-avatar-init">DK</div>
+                  <div>
+                    <h3 class="reviewer-name">David Kaufman</h3>
+                    <span class="review-date">August 28, 2026 &bull; Verified Booking</span>
+                  </div>
+                </div>
+                <div class="rating-stars-gold">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              </div>
+              <p class="review-comment-text">
+                Extremely smooth process from scheduling to completion. Thorough work with no chemical smell, which was great for our pets. Will definitely use them again.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- 7. Related Services Section -->
+        <section class="related-services-card" aria-labelledby="heading-related-services">
+          <div class="profile-card-header" style="margin-bottom: 0; padding-bottom: 0.75rem;">
+            <h2 class="profile-card-title" id="heading-related-services">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="7" height="7" x="3" y="3" rx="1"/>
+                <rect width="7" height="7" x="14" y="3" rx="1"/>
+                <rect width="7" height="7" x="14" y="14" rx="1"/>
+                <rect width="7" height="7" x="3" y="14" rx="1"/>
+              </svg>
+              <span>Related Services You Might Like</span>
+            </h2>
+          </div>
+
+          <div class="related-grid" id="related-services-grid">
+            <!-- Dynamically populated or default related services -->
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Right Column: Sticky Pricing, Availability Selector, Location, Book Now & Add to Cart -->
+      <aside class="service-details-sidebar" aria-label="Booking and pricing details">
+        
+        <div class="service-booking-card">
+          <!-- Pricing Block -->
+          <div class="pricing-display-block">
+            <span class="pricing-label">Starting Price</span>
+            <div style="display: flex; align-items: baseline; gap: 0.5rem;">
+              <span class="pricing-amount" id="service-price-val">$65</span>
+              <span class="pricing-subtext">/ standard visit</span>
+            </div>
+            <span style="font-size: var(--font-size-xs); color: #059669; font-weight: 600;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><polyline points="20 6 9 17 4 12"/></svg>
+              Transparent flat-rate pricing
+            </span>
+          </div>
+
+          <!-- 3. Availability: Day and Time Selector -->
+          <div class="availability-picker-block">
+            <div class="picker-label-row">
+              <span>Select Date / Day:</span>
+              <span style="color: var(--color-primary); font-weight: 600;" id="selected-day-label">Tomorrow (Wed)</span>
+            </div>
+            
+            <div class="days-chips-row" id="day-chips-row" role="radiogroup" aria-label="Select booking day">
+              <button type="button" class="day-chip active" data-day="Wed, Sep 30" role="radio" aria-checked="true">
+                <strong>Wed</strong><br><span style="font-size: 0.7rem; color: inherit;">Sep 30</span>
+              </button>
+              <button type="button" class="day-chip" data-day="Thu, Oct 01" role="radio" aria-checked="false">
+                <strong>Thu</strong><br><span style="font-size: 0.7rem; color: inherit;">Oct 01</span>
+              </button>
+              <button type="button" class="day-chip" data-day="Fri, Oct 02" role="radio" aria-checked="false">
+                <strong>Fri</strong><br><span style="font-size: 0.7rem; color: inherit;">Oct 02</span>
+              </button>
+              <button type="button" class="day-chip" data-day="Sat, Oct 03" role="radio" aria-checked="false">
+                <strong>Sat</strong><br><span style="font-size: 0.7rem; color: inherit;">Oct 03</span>
+              </button>
+            </div>
+
+            <div class="picker-label-row" style="margin-top: 0.5rem;">
+              <span>Available Arrival Window:</span>
+              <span style="color: var(--color-primary); font-weight: 600;" id="selected-time-label">10:00 AM</span>
+            </div>
+
+            <div class="time-slots-grid" id="time-slots-grid" role="radiogroup" aria-label="Select arrival window">
+              <button type="button" class="time-slot-btn active" data-time="10:00 AM" role="radio" aria-checked="true">10:00 AM</button>
+              <button type="button" class="time-slot-btn" data-time="12:30 PM" role="radio" aria-checked="false">12:30 PM</button>
+              <button type="button" class="time-slot-btn" data-time="2:30 PM" role="radio" aria-checked="false">2:30 PM</button>
+              <button type="button" class="time-slot-btn" data-time="4:30 PM" role="radio" aria-checked="false">4:30 PM</button>
+            </div>
+          </div>
+
+          <!-- 4. Service Location Information -->
+          <div class="service-location-block">
+            <div class="location-icon-bubble" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div class="location-details-col">
+              <span class="location-title">Service Location</span>
+              <span class="location-desc" id="service-location-desc">
+                At Your Location &bull; Central City &amp; Metro Area (25 mi service radius)
+              </span>
+            </div>
+          </div>
+
+          <!-- 5. Main Action Buttons -->
+          <div class="booking-actions-stack">
+            <button type="button" class="btn-book-now" id="btn-book-now">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+              <span>Book Now</span>
+            </button>
+
+            <button type="button" class="btn-add-cart" id="btn-add-cart">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="8" cy="21" r="1"/>
+                <circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+              <span>Add to Cart</span>
+            </button>
+          </div>
+
+          <!-- Trust & Protection List -->
+          <div class="trust-badges-list" style="margin-top: 0.5rem; padding-top: 1rem; border-top: 1px solid var(--color-border);">
+            <div class="trust-badge-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Free cancellation up to 24 hrs prior</span>
+            </div>
+            <div class="trust-badge-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>ServiceHub 100% Satisfaction Guarantee</span>
+            </div>
+            <div class="trust-badge-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Direct, verified provider communication</span>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Interactive Booking Confirmation Modal -->
+  <div class="service-modal-backdrop" id="booking-modal" role="dialog" aria-modal="true" aria-labelledby="modal-booking-title" hidden>
+    <div class="service-modal" style="max-width: 480px;">
+      <button type="button" class="modal-close-btn" id="modal-booking-close" aria-label="Close booking modal">&times;</button>
+      
+      <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+        <span class="merchant-cat-pill theme-cleaning" id="modal-booking-category">Cleaning</span>
+        <span style="font-size: var(--font-size-xs); color: #059669; font-weight: 700;">&bull; Ready to Schedule</span>
+      </div>
+
+      <h3 class="service-title" id="modal-booking-title" style="font-size: 1.375rem; margin-bottom: 0.375rem;">Confirm Your Booking</h3>
+      <p style="font-size: var(--font-size-xs); color: var(--color-text-muted); margin-bottom: 1.25rem;">
+        Review your selected provider, date, and arrival window below.
+      </p>
+
+      <!-- Booking Summary Box -->
+      <div style="background-color: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.25rem; display: flex; flex-direction: column; gap: 0.625rem; font-size: var(--font-size-sm);">
+        <div style="display: flex; justify-content: space-between;">
+          <span style="color: var(--color-text-muted);">Service:</span>
+          <strong id="modal-summary-service" style="color: var(--color-text-main); text-align: right; max-width: 220px;">Standard Residential Deep Clean</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <span style="color: var(--color-text-muted);">Provider:</span>
+          <strong id="modal-summary-merchant" style="color: var(--color-text-main);">SparkleClean Co.</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <span style="color: var(--color-text-muted);">Date &amp; Time:</span>
+          <strong id="modal-summary-datetime" style="color: var(--color-primary);">Wed, Sep 30 at 10:00 AM</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding-top: 0.5rem; border-top: 1px dashed var(--color-border);">
+          <span style="color: var(--color-text-main); font-weight: 700;">Starting Rate:</span>
+          <strong id="modal-summary-price" style="font-size: 1.125rem; color: var(--color-text-main);">$65</strong>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 0.75rem;">
+        <button type="button" class="btn btn-secondary" id="modal-booking-cancel" style="flex: 1;">Cancel</button>
+        <button type="button" class="btn btn-primary" id="modal-booking-confirm" style="flex: 1.5;">Confirm Request</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Notification Toast -->
+  <div class="cart-toast" id="cart-toast" role="status" aria-live="polite">
+    <svg class="cart-toast-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="20 6 9 17 4 12"/>
+    </svg>
+    <span id="cart-toast-msg">Service added to your cart!</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        
+        <!-- Brand Info -->
+        <div class="footer-brand">
+          <div class="nav-brand" style="margin-bottom: 0.75rem;">
+            <svg viewBox="0 0 40 40" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="10" fill="#2563EB"/>
+              <path d="M20 9L29.5 14.5V25.5L20 31L10.5 25.5V14.5L20 9Z" stroke="white" stroke-width="2.2" stroke-linejoin="round"/>
+              <circle cx="20" cy="20" r="3.5" fill="white"/>
+            </svg>
+            <span class="brand-name">Service<span>Hub</span></span>
+          </div>
+          <p class="footer-brand-desc">
+            The modern local service marketplace connecting customers with verified, professional merchants across home, automotive, repair, and lifestyle services.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="merchants.html" class="footer-link">Service Providers</a></li>
+            <li><a href="categories.html" class="footer-link">Categories</a></li>
+            <li><a href="login.html" class="footer-link">Customer Login</a></li>
+            <li><a href="signup.html" class="footer-link">Customer Sign Up</a></li>
+          </ul>
+        </div>
+
+        <!-- Merchant Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">For Merchants</h4>
+          <ul class="footer-links">
+            <li><a href="merchant-signup.html" class="footer-link">Register as Merchant</a></li>
+            <li><a href="login.html" class="footer-link">Merchant Login</a></li>
+            <li><a href="categories.html" class="footer-link">Category Guidelines</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Contact Information</h4>
+          <ul class="footer-contact-list">
+            <li class="contact-item">
+              <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              <span>support@servicehub.com</span>
+            </li>
+            <li class="contact-item">
+              <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>+1 (800) 555-SERV (7378)</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 ServiceHub Inc. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Terms of Service</a>
+          <a href="#" class="footer-link">Trust &amp; Safety</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="service-details.js"></script>
+</body>
+</html>

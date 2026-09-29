@@ -2875,6 +2875,613 @@ body {
   }
 }
 
+/* ==========================================================================
+   FEATURE 8: Professional Service Details Page Styles
+   ========================================================================== */
+
+/* Main Layout Grid */
+.service-details-container {
+  max-width: 1200px;
+  margin: 1.5rem auto 4rem;
+  padding: 0 1.5rem;
+}
+
+.service-details-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.service-details-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.service-details-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: sticky;
+  top: 90px;
+}
+
+/* 1. Service Hero Image & Visuals */
+.service-hero-visual {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: #0f172a;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+
+.service-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.service-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.7) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.75rem;
+}
+
+.service-hero-tags {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.service-tag-pill {
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(4px);
+  color: var(--color-text-main);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+/* Service Title & Primary Meta Block */
+.service-header-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.service-page-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-text-main);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.service-merchant-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.service-merchant-identity {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.service-merchant-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: #ffffff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+}
+
+.service-merchant-link {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  transition: color var(--transition-fast);
+}
+
+.service-merchant-link:hover {
+  color: var(--color-primary);
+}
+
+.service-quick-meta-bar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.service-meta-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--color-text-muted);
+}
+
+.service-meta-chip svg {
+  color: var(--color-primary);
+}
+
+/* 2. Service Description & What is Included */
+.service-desc-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.service-desc-paragraph {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.section-subheading {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin: 0 0 1rem 0;
+}
+
+.included-checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.875rem;
+}
+
+.included-checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+.included-checklist-item svg {
+  color: #10b981;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Preparation Steps */
+.prep-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.prep-step-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.prep-step-number {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.prep-step-content h4 {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin: 0 0 0.25rem 0;
+}
+
+.prep-step-content p {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* 3 & 5. Sidebar Booking & Pricing Card */
+.service-booking-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.pricing-display-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pricing-label {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-subtle);
+  font-weight: 700;
+}
+
+.pricing-amount {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--color-text-main);
+  line-height: 1.1;
+}
+
+.pricing-subtext {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+/* 3. Availability Selector Inside Sidebar */
+.availability-picker-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.picker-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.days-chips-row {
+  display: flex;
+  gap: 0.375rem;
+}
+
+.day-chip {
+  flex: 1;
+  border: 1px solid var(--color-border);
+  background-color: #ffffff;
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.25rem;
+  text-align: center;
+  font-size: var(--font-size-xs);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.day-chip:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-light);
+}
+
+.day-chip.active {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
+  font-weight: 700;
+}
+
+.time-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.time-slot-btn {
+  border: 1px solid var(--color-border);
+  background-color: #f8fafc;
+  border-radius: var(--radius-sm);
+  padding: 0.45rem 0.5rem;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-main);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.time-slot-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.time-slot-btn.active {
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* 4. Location Information */
+.service-location-block {
+  background-color: #f8fafc;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.location-icon-bubble {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.location-details-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.location-title {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.location-desc {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+/* 5. Main Action Buttons */
+.booking-actions-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.btn-book-now {
+  width: 100%;
+  padding: 0.875rem;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.btn-book-now:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-add-cart {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  background-color: #ffffff;
+  color: var(--color-text-main);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all var(--transition-fast);
+}
+
+.btn-add-cart:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background-color: var(--color-primary-light);
+}
+
+/* 7. Related Services Section */
+.related-services-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.related-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.related-card:hover {
+  border-color: #93c5fd;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px -4px rgba(15, 23, 42, 0.08);
+}
+
+.related-img-wrap {
+  position: relative;
+  height: 140px;
+  background-color: #e2e8f0;
+}
+
+.related-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.related-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.5rem;
+}
+
+.related-merchant-name {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-subtle);
+  margin: 0;
+}
+
+.related-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  line-height: 1.3;
+  margin: 0;
+  flex: 1;
+}
+
+.related-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.related-price {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--color-text-main);
+}
+
+/* Cart Toast Notification */
+.cart-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #0f172a;
+  color: #ffffff;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  z-index: 9999;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.cart-toast.show {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cart-toast-icon {
+  color: #10b981;
+}
+
+/* Responsive adjustments for Service Details */
+@media (max-width: 992px) {
+  .service-details-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .service-details-sidebar {
+    position: static;
+  }
+
+  .related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .service-page-title {
+    font-size: 1.5rem;
+  }
+
+  .service-hero-visual {
+    height: 240px;
+  }
+
+  .included-checklist-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .related-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 
 

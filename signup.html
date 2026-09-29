@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create a customer account on ServiceHub - Discover and book trusted local service providers.">
+  <title>Customer Sign Up &bull; ServiceHub</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page-container">
+    <div class="login-wrapper">
+      
+      <!-- Brand Header -->
+      <div class="brand-header">
+        <a href="index.html" class="brand-logo" aria-label="ServiceHub Home">
+          <svg viewBox="0 0 40 40" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="10" fill="#2563EB"/>
+            <path d="M20 9L29.5 14.5V25.5L20 31L10.5 25.5V14.5L20 9Z" stroke="white" stroke-width="2.2" stroke-linejoin="round"/>
+            <circle cx="20" cy="20" r="3.5" fill="white"/>
+            <line x1="20" y1="9" x2="20" y2="16.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <line x1="29.5" y1="25.5" x2="23" y2="21.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <line x1="10.5" y1="25.5" x2="17" y2="21.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </a>
+        <h1 class="brand-name">Service<span>Hub</span></h1>
+      </div>
+
+      <!-- Sign Up Card -->
+      <div class="login-card" id="signup-card">
+        
+        <!-- Registration Form Container -->
+        <div id="form-container">
+          <header class="card-header">
+            <h2 class="card-title">Create Customer Account</h2>
+            <p class="card-subtitle">Join ServiceHub to book and track trusted local services</p>
+          </header>
+
+          <!-- Status Notification -->
+          <div id="status-message" class="status-banner" role="status" aria-live="polite" hidden></div>
+
+          <!-- Customer Sign Up Form -->
+          <form id="signup-form" class="login-form" novalidate method="POST" action="#">
+            
+            <!-- Full Name Input Group -->
+            <div class="form-group" id="group-fullname">
+              <label for="fullname" class="form-label">Full Name</label>
+              <div class="input-container">
+                <span class="input-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                  </svg>
+                </span>
+                <input 
+                  type="text" 
+                  id="fullname" 
+                  name="fullname" 
+                  class="form-input" 
+                  placeholder="e.g. Alex Morgan" 
+                  autocomplete="name" 
+                  required 
+                  aria-describedby="fullname-error">
+              </div>
+              <div id="fullname-error" class="input-feedback" aria-live="polite">
+                Please enter your full name.
+              </div>
+            </div>
+
+            <!-- Email Input Group -->
+            <div class="form-group" id="group-email">
+              <label for="email" class="form-label">Email address</label>
+              <div class="input-container">
+                <span class="input-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="16" x="2" y="4" rx="2"/>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                  </svg>
+                </span>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  class="form-input" 
+                  placeholder="name@example.com" 
+                  autocomplete="email" 
+                  required 
+                  aria-describedby="email-error">
+              </div>
+              <div id="email-error" class="input-feedback" aria-live="polite">
+                Please enter a valid email address.
+              </div>
+            </div>
+
+            <!-- Phone Number Input Group -->
+            <div class="form-group" id="group-phone">
+              <label for="phone" class="form-label">Phone number</label>
+              <div class="input-container">
+                <span class="input-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                </span>
+                <input 
+                  type="tel" 
+                  id="phone" 
+                  name="phone" 
+                  class="form-input" 
+                  placeholder="+1 (555) 000-0000" 
+                  autocomplete="tel" 
+                  required 
+                  aria-describedby="phone-error">
+              </div>
+              <div id="phone-error" class="input-feedback" aria-live="polite">
+                Please enter a valid phone number.
+              </div>
+            </div>
+
+            <!-- Password Input Group -->
+            <div class="form-group" id="group-password">
+              <label for="password" class="form-label">Password</label>
+              <div class="input-container">
+                <span class="input-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                  </svg>
+                </span>
+                <input 
+                  type="password" 
+                  id="password" 
+                  name="password" 
+                  class="form-input has-toggle" 
+                  placeholder="At least 8 characters" 
+                  autocomplete="new-password" 
+                  required 
+                  minlength="8"
+                  aria-describedby="password-error">
+                <button 
+                  type="button" 
+                  id="toggle-password" 
+                  class="password-toggle-btn" 
+                  aria-label="Show password" 
+                  aria-pressed="false">
+                  <svg class="eye-icon eye-show" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                  <svg class="eye-icon eye-hide" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="m9.88 9.88 4.24 4.24m.56-4.24-4.24 4.24"/>
+                    <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/>
+                    <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/>
+                    <line x1="2" x2="22" y1="2" y2="22"/>
+                  </svg>
+                </button>
+              </div>
+              <div id="password-error" class="input-feedback" aria-live="polite">
+                Password must be at least 8 characters.
+              </div>
+            </div>
+
+            <!-- Confirm Password Input Group -->
+            <div class="form-group" id="group-confirm-password">
+              <label for="confirm-password" class="form-label">Confirm Password</label>
+              <div class="input-container">
+                <span class="input-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+                    <path d="m9 12 2 2 4-4"/>
+                  </svg>
+                </span>
+                <input 
+                  type="password" 
+                  id="confirm-password" 
+                  name="confirm_password" 
+                  class="form-input has-toggle" 
+                  placeholder="Re-enter your password" 
+                  autocomplete="new-password" 
+                  required 
+                  aria-describedby="confirm-password-error">
+                <button 
+                  type="button" 
+                  id="toggle-confirm-password" 
+                  class="password-toggle-btn" 
+                  aria-label="Show confirm password" 
+                  aria-pressed="false">
+                  <svg class="eye-icon eye-show" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                  <svg class="eye-icon eye-hide" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="m9.88 9.88 4.24 4.24m.56-4.24-4.24 4.24"/>
+                    <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/>
+                    <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/>
+                    <line x1="2" x2="22" y1="2" y2="22"/>
+                  </svg>
+                </button>
+              </div>
+              <div id="confirm-password-error" class="input-feedback" aria-live="polite">
+                Passwords do not match.
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" id="create-account-button" class="btn btn-primary">
+              <span class="btn-text">Create Account</span>
+              <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+              </svg>
+            </button>
+          </form>
+
+          <!-- Login Link -->
+          <footer class="card-footer">
+            <p class="login-prompt">
+              Already have an account? 
+              <a href="index.html" id="login-link" class="text-link login-link">Login</a>
+            </p>
+          </footer>
+        </div>
+
+        <!-- Success Message View (Initially hidden, revealed on successful registration) -->
+        <div id="success-view" class="success-card-content" hidden>
+          <div class="success-icon-badge" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
+          <h2 class="success-title">Account Created Successfully!</h2>
+          <p class="success-desc">
+            Welcome to ServiceHub, <strong id="registered-user-name">there</strong>! Your customer account is ready.
+          </p>
+          <a href="index.html" class="btn btn-primary" id="continue-login-btn">
+            <span>Continue to Login</span>
+            <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"/>
+              <path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+          <p class="success-redirect-note" id="redirect-countdown">Redirecting to login in 3 seconds...</p>
+        </div>
+
+      </div>
+
+      <!-- Minimal Brand Footer -->
+      <aside class="page-footer">
+        <p>&copy; 2026 ServiceHub Inc. All rights reserved.</p>
+      </aside>
+
+    </div>
+  </main>
+
+  <script src="signup.js"></script>
+</body>
+</html>

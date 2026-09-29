@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Securely complete your service payment with ServiceHub. Support for Credit/Debit Cards, UPI, and Net Banking with instant booking confirmation.">
+  <title>Payment &bull; ServiceHub</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="site-header">
+    <nav class="nav-container" aria-label="Main Navigation">
+      <a href="index.html" class="nav-brand" aria-label="ServiceHub Home">
+        <svg viewBox="0 0 40 40" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="10" fill="#2563EB"/>
+          <path d="M20 9L29.5 14.5V25.5L20 31L10.5 25.5V14.5L20 9Z" stroke="white" stroke-width="2.2" stroke-linejoin="round"/>
+          <circle cx="20" cy="20" r="3.5" fill="white"/>
+          <line x1="20" y1="9" x2="20" y2="16.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <line x1="29.5" y1="25.5" x2="23" y2="21.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <line x1="10.5" y1="25.5" x2="17" y2="21.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-name">Service<span>Hub</span></span>
+      </a>
+
+      <!-- Navigation Links -->
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="merchants.html" class="nav-link">Services</a></li>
+        <li><a href="categories.html" class="nav-link">Categories</a></li>
+        <li><a href="login.html" class="nav-link">Login</a></li>
+      </ul>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <a href="signup.html" class="btn btn-sm btn-primary">Sign Up</a>
+        <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Progress Step Tracker Bar -->
+  <div class="booking-steps-bar" aria-label="Payment Progress">
+    <div class="booking-steps-container">
+      <div class="step-item completed">
+        <span class="step-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        </span>
+        <span class="step-label">Schedule &amp; Details</span>
+      </div>
+      <div class="step-divider" aria-hidden="true"></div>
+      <div class="step-item completed">
+        <span class="step-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        </span>
+        <span class="step-label">Customer &amp; Review</span>
+      </div>
+      <div class="step-divider" aria-hidden="true"></div>
+      <div class="step-item active" id="step-payment-indicator">
+        <span class="step-badge" id="step-payment-badge">3</span>
+        <span class="step-label">Payment</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="payment-page-container">
+
+    <!-- Active Payment Form View -->
+    <div id="payment-active-view" class="payment-layout">
+      
+      <!-- Left Column: Payment Methods & Payment Forms -->
+      <div class="payment-main-col">
+        
+        <!-- 2. Payment Methods Selection Tabs -->
+        <section class="payment-card" aria-labelledby="heading-payment-methods">
+          <div class="payment-card-header">
+            <h2 class="payment-card-title" id="heading-payment-methods">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="20" height="14" x="2" y="5" rx="2"/>
+                <line x1="2" y1="10" x2="22" y2="10"/>
+              </svg>
+              <span>Choose Payment Method</span>
+            </h2>
+            <span style="font-size: var(--font-size-xs); color: #059669; font-weight: 700; display: flex; align-items: center; gap: 0.25rem;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+              256-Bit SSL
+            </span>
+          </div>
+
+          <!-- Method Tabs: Credit / Debit Card, UPI, Net Banking -->
+          <div class="payment-methods-tabs" role="tablist" aria-label="Payment Method Tabs">
+            <button type="button" class="payment-tab-btn active" id="tab-card" role="tab" aria-selected="true" aria-controls="form-card-panel">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="20" height="14" x="2" y="5" rx="2"/>
+                <line x1="2" y1="10" x2="22" y2="10"/>
+              </svg>
+              <span>Credit / Debit Card</span>
+            </button>
+            <button type="button" class="payment-tab-btn" id="tab-upi" role="tab" aria-selected="false" aria-controls="form-upi-panel">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/>
+                <line x1="12" y1="18" x2="12.01" y2="18"/>
+              </svg>
+              <span>UPI</span>
+            </button>
+            <button type="button" class="payment-tab-btn" id="tab-netbanking" role="tab" aria-selected="false" aria-controls="form-netbanking-panel">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+              <span>Net Banking</span>
+            </button>
+          </div>
+
+          <!-- TAB 1: Credit / Debit Card Form Panel -->
+          <div id="form-card-panel" role="tabpanel" aria-labelledby="tab-card">
+            
+            <!-- Interactive Visual Card -->
+            <div class="interactive-card-visual" aria-hidden="true" style="margin-bottom: 1.5rem;">
+              <div class="card-visual-top">
+                <div class="card-chip"></div>
+                <div class="card-network-badge" id="card-preview-brand">VISA / MC</div>
+              </div>
+              <div class="card-visual-number" id="card-preview-number">&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; 4242</div>
+              <div class="card-visual-bottom">
+                <div>
+                  <div class="card-visual-holder-label">Cardholder</div>
+                  <div class="card-visual-holder-val" id="card-preview-holder">JORDAN MILLER</div>
+                </div>
+                <div>
+                  <div class="card-visual-expiry-label">Expires</div>
+                  <div class="card-visual-expiry-val" id="card-preview-expiry">12/28</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Form Inputs -->
+            <form id="payment-card-form" novalidate>
+              <div class="payment-form-grid">
+                
+                <!-- Cardholder Name -->
+                <div class="payment-field-group full-width">
+                  <label for="card-holder" class="checkout-field-label">Cardholder Name *</label>
+                  <input 
+                    type="text" 
+                    id="card-holder" 
+                    name="cardHolder" 
+                    class="checkout-input" 
+                    placeholder="e.g. Jordan Miller" 
+                    required 
+                    autocomplete="cc-name"
+                    aria-required="true">
+                  <span class="field-error" id="card-holder-error" style="display: none; color: var(--color-error); font-size: var(--font-size-xs);">Please enter the name on your card.</span>
+                </div>
+
+                <!-- Card Number -->
+                <div class="payment-field-group full-width">
+                  <label for="card-number" class="checkout-field-label">Card Number *</label>
+                  <div class="card-input-wrapper">
+                    <input 
+                      type="text" 
+                      id="card-number" 
+                      name="cardNumber" 
+                      class="checkout-input" 
+                      placeholder="4532 &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; 4242" 
+                      maxlength="19" 
+                      required 
+                      autocomplete="cc-number"
+                      aria-required="true">
+                    <div class="card-input-brand-icon" id="card-brand-icon">
+                      <svg width="28" height="20" viewBox="0 0 32 20" fill="none"><rect width="32" height="20" rx="3" fill="#1e293b"/><text x="6" y="14" fill="#ffffff" font-size="8" font-weight="700">CARD</text></svg>
+                    </div>
+                  </div>
+                  <span class="field-error" id="card-number-error" style="display: none; color: var(--color-error); font-size: var(--font-size-xs);">Please enter a valid 16-digit card number.</span>
+                </div>
+
+                <!-- Expiry Date -->
+                <div class="payment-field-group">
+                  <label for="card-expiry" class="checkout-field-label">Expiry Date *</label>
+                  <input 
+                    type="text" 
+                    id="card-expiry" 
+                    name="cardExpiry" 
+                    class="checkout-input" 
+                    placeholder="MM/YY" 
+                    maxlength="5" 
+                    required 
+                    autocomplete="cc-exp"
+                    aria-required="true">
+                  <span class="field-error" id="card-expiry-error" style="display: none; color: var(--color-error); font-size: var(--font-size-xs);">Enter valid MM/YY.</span>
+                </div>
+
+                <!-- CVV -->
+                <div class="payment-field-group">
+                  <label for="card-cvv" class="checkout-field-label">CVV / CVC *</label>
+                  <div style="position: relative; display: flex; align-items: center;">
+                    <input 
+                      type="password" 
+                      id="card-cvv" 
+                      name="cardCvv" 
+                      class="checkout-input" 
+                      placeholder="&bull;&bull;&bull;" 
+                      maxlength="4" 
+                      required 
+                      autocomplete="cc-csc"
+                      aria-required="true">
+                    <span style="position: absolute; right: 0.75rem; font-size: var(--font-size-xs); color: var(--color-text-subtle); pointer-events: none;">3 digits</span>
+                  </div>
+                  <span class="field-error" id="card-cvv-error" style="display: none; color: var(--color-error); font-size: var(--font-size-xs);">Enter 3 or 4 digits.</span>
+                </div>
+
+              </div>
+            </form>
+          </div>
+
+          <!-- TAB 2: UPI Form Panel -->
+          <div id="form-upi-panel" role="tabpanel" aria-labelledby="tab-upi" hidden>
+            <div class="upi-methods-container">
+              <p style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin: 0;">
+                Pay instantly from your bank account using any UPI application.
+              </p>
+
+              <!-- Quick App Selection -->
+              <div class="upi-apps-row" id="upi-apps-selector">
+                <div class="upi-app-card selected" data-app="gpay">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#f1f5f9"/><text x="4" y="16" fill="#1e293b" font-size="9" font-weight="800">GPay</text></svg>
+                  <span class="upi-app-title">Google Pay</span>
+                </div>
+                <div class="upi-app-card" data-app="phonepe">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#6739b7"/><text x="4" y="16" fill="#ffffff" font-size="9" font-weight="800">Pe</text></svg>
+                  <span class="upi-app-title">PhonePe</span>
+                </div>
+                <div class="upi-app-card" data-app="paytm">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#00baf2"/><text x="2" y="16" fill="#ffffff" font-size="8" font-weight="800">Paytm</text></svg>
+                  <span class="upi-app-title">Paytm UPI</span>
+                </div>
+                <div class="upi-app-card" data-app="bhim">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#008060"/><text x="2" y="16" fill="#ffffff" font-size="8" font-weight="800">BHIM</text></svg>
+                  <span class="upi-app-title">BHIM</span>
+                </div>
+              </div>
+
+              <!-- UPI ID Input -->
+              <div class="payment-field-group">
+                <label for="upi-vpa" class="checkout-field-label">Enter UPI ID (VPA) *</label>
+                <div style="display: flex; gap: 0.5rem;">
+                  <input 
+                    type="text" 
+                    id="upi-vpa" 
+                    class="checkout-input" 
+                    placeholder="e.g. mobile@okhdfcbank" 
+                    value="jordan@okaxis">
+                </div>
+                <span class="field-error" id="upi-vpa-error" style="display: none; color: var(--color-error); font-size: var(--font-size-xs);">Please enter a valid UPI ID (e.g. user@bank).</span>
+              </div>
+
+              <!-- Quick Handle Chips -->
+              <div class="upi-handles-chips">
+                <span style="font-size: var(--font-size-xs); color: var(--color-text-subtle);">Popular handles:</span>
+                <button type="button" class="upi-handle-chip" data-handle="@okhdfcbank">@okhdfcbank</button>
+                <button type="button" class="upi-handle-chip" data-handle="@okaxis">@okaxis</button>
+                <button type="button" class="upi-handle-chip" data-handle="@paytm">@paytm</button>
+                <button type="button" class="upi-handle-chip" data-handle="@ybl">@ybl</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 3: Net Banking Panel -->
+          <div id="form-netbanking-panel" role="tabpanel" aria-labelledby="tab-netbanking" hidden>
+            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+              <p style="font-size: var(--font-size-sm); color: var(--color-text-muted); margin: 0;">
+                Select your bank to authenticate and authorize payment securely via internet banking portal.
+              </p>
+
+              <!-- Popular Bank Cards -->
+              <div class="netbanking-grid" id="netbanking-banks">
+                <div class="bank-option-card selected" data-bank="HDFC Bank">
+                  <div class="bank-avatar-badge" style="background-color: #004c8f; color: #ffffff;">HDFC</div>
+                  <span class="bank-title-name">HDFC Bank</span>
+                </div>
+                <div class="bank-option-card" data-bank="State Bank of India">
+                  <div class="bank-avatar-badge" style="background-color: #280071; color: #ffffff;">SBI</div>
+                  <span class="bank-title-name">SBI</span>
+                </div>
+                <div class="bank-option-card" data-bank="ICICI Bank">
+                  <div class="bank-avatar-badge" style="background-color: #b02a30; color: #ffffff;">ICICI</div>
+                  <span class="bank-title-name">ICICI Bank</span>
+                </div>
+                <div class="bank-option-card" data-bank="Axis Bank">
+                  <div class="bank-avatar-badge" style="background-color: #97144d; color: #ffffff;">AXIS</div>
+                  <span class="bank-title-name">Axis Bank</span>
+                </div>
+                <div class="bank-option-card" data-bank="Kotak Mahindra Bank">
+                  <div class="bank-avatar-badge" style="background-color: #ed1c24; color: #ffffff;">KMB</div>
+                  <span class="bank-title-name">Kotak Bank</span>
+                </div>
+                <div class="bank-option-card" data-bank="Chase Bank">
+                  <div class="bank-avatar-badge" style="background-color: #117aca; color: #ffffff;">JPMC</div>
+                  <span class="bank-title-name">Chase</span>
+                </div>
+              </div>
+
+              <!-- Other Bank Dropdown -->
+              <div class="payment-field-group">
+                <label for="other-banks-select" class="checkout-field-label">Or Select From All Other Banks</label>
+                <select id="other-banks-select" class="checkout-input" style="cursor: pointer;">
+                  <option value="">-- Choose other bank --</option>
+                  <option value="Bank of America">Bank of America</option>
+                  <option value="Citibank">Citibank</option>
+                  <option value="Punjab National Bank">Punjab National Bank</option>
+                  <option value="Wells Fargo">Wells Fargo</option>
+                  <option value="Standard Chartered">Standard Chartered</option>
+                  <option value="HSBC Bank">HSBC Bank</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Payment Action Section -->
+          <div style="display: flex; flex-direction: column; gap: 0.875rem; padding-top: 1rem; border-top: 1px solid var(--color-border);">
+            
+            <button type="button" class="btn-pay-now" id="btn-pay-now">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" id="pay-icon-lock">
+                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="spinner-icon" id="pay-spinner" style="display: none;" aria-hidden="true">
+                <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+              </svg>
+              <span id="btn-pay-text">Pay $65.00 Securely</span>
+            </button>
+
+            <!-- Secure Payment Message -->
+            <div class="secure-payment-notice">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0;">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+              </svg>
+              <span>Guaranteed 256-bit SSL encrypted mock payment. No real card details are captured or charged.</span>
+            </div>
+
+            <!-- Back to Checkout Link -->
+            <a href="checkout.html" class="back-to-service-link" id="link-back-checkout" style="margin-top: 0.25rem;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m15 18-6-6 6-6"/>
+              </svg>
+              <span>Back to Checkout &bull; Review Booking</span>
+            </a>
+
+          </div>
+
+        </section>
+
+      </div>
+
+      <!-- Right Column: 1. Order Summary & Guarantees -->
+      <aside class="payment-sidebar-col" aria-label="Order and payment summary">
+        
+        <!-- Order Summary Card -->
+        <section class="checkout-card" aria-labelledby="heading-order-summary" style="padding: 1.75rem;">
+          <div class="checkout-card-header" style="margin-bottom: 0;">
+            <h2 class="checkout-card-title" id="heading-order-summary" style="font-size: 1.125rem;">
+              <span>1. Order Summary</span>
+            </h2>
+            <span class="merchant-cat-pill theme-cleaning" id="pay-srv-cat">Cleaning</span>
+          </div>
+
+          <!-- Service Preview -->
+          <div class="checkout-service-preview-row">
+            <img 
+              id="pay-srv-img" 
+              class="checkout-service-thumb" 
+              src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=300&q=80" 
+              alt="Service image thumbnail">
+            
+            <div class="checkout-service-meta">
+              <h3 class="checkout-service-title" id="pay-srv-title">Standard Residential Deep Clean &amp; Sanitization</h3>
+              <p class="checkout-merchant-sub">
+                <span>By</span>
+                <strong id="pay-mch-name" style="color: var(--color-text-main);">SparkleClean Co.</strong>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </p>
+            </div>
+          </div>
+
+          <!-- Appointment Details -->
+          <div class="checkout-schedule-details-box">
+            <div class="schedule-detail-line">
+              <span class="schedule-detail-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Date:
+              </span>
+              <span class="schedule-detail-val" id="pay-date-val">Wed, Sep 30, 2026</span>
+            </div>
+
+            <div class="schedule-detail-line">
+              <span class="schedule-detail-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+                Arrival Time:
+              </span>
+              <span class="schedule-detail-val" id="pay-time-val">09:00 AM</span>
+            </div>
+
+            <div class="schedule-detail-line">
+              <span class="schedule-detail-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Customer:
+              </span>
+              <span class="schedule-detail-val" id="pay-customer-val">Jordan Miller</span>
+            </div>
+          </div>
+
+          <!-- Price Calculation -->
+          <div class="billing-breakdown-list" style="padding-top: 0.5rem;">
+            <div class="billing-line-row">
+              <span>Service Subtotal:</span>
+              <span id="pay-subtotal-val" style="font-weight: 600; color: var(--color-text-main);">$65.00</span>
+            </div>
+            
+            <div class="billing-line-row">
+              <span>Service Fee:</span>
+              <span style="color: #059669; font-weight: 600;">FREE ($0.00)</span>
+            </div>
+          </div>
+
+          <div class="billing-total-row" style="margin-top: 0.5rem;">
+            <span>Total Amount:</span>
+            <span id="pay-total-val" style="color: #059669; font-size: 1.5rem;">$65.00</span>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="trust-badges-list" style="margin-top: 0.75rem; padding-top: 1rem; border-top: 1px solid var(--color-border);">
+            <div class="trust-badge-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Instant Appointment Booking Confirmation</span>
+            </div>
+            <div class="trust-badge-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>100% Satisfaction &amp; Service Guarantee</span>
+            </div>
+          </div>
+
+        </section>
+
+      </aside>
+
+    </div>
+
+    <!-- 5. Payment Result / Success View (Displayed after successful mock payment) -->
+    <div id="payment-result-view" class="payment-result-screen" style="display: none;" role="region" aria-label="Payment Result Receipt">
+      
+      <!-- Success Badge Icon -->
+      <div class="success-icon-badge" aria-hidden="true">
+        <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+
+      <div>
+        <h2 class="success-title">Payment Successful!</h2>
+        <p class="success-subtitle">
+          Your booking is confirmed with <strong id="res-mch-name">SparkleClean Co.</strong> A digital confirmation receipt has been generated.
+        </p>
+      </div>
+
+      <!-- Receipt Summary Box -->
+      <div class="receipt-summary-box">
+        
+        <!-- Order / Booking ID -->
+        <div class="receipt-row">
+          <span class="receipt-row-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg>
+            Order / Booking ID:
+          </span>
+          <span class="receipt-row-value">
+            <span class="receipt-id-badge" id="res-order-id">#SH-2026-88492</span>
+          </span>
+        </div>
+
+        <!-- Service Name -->
+        <div class="receipt-row">
+          <span class="receipt-row-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Service Name:
+          </span>
+          <span class="receipt-row-value" id="res-srv-name">Standard Residential Deep Clean &amp; Sanitization</span>
+        </div>
+
+        <!-- Merchant Name -->
+        <div class="receipt-row">
+          <span class="receipt-row-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            Merchant:
+          </span>
+          <span class="receipt-row-value" id="res-mch-val">SparkleClean Co.</span>
+        </div>
+
+        <!-- Booking Date & Time -->
+        <div class="receipt-row">
+          <span class="receipt-row-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Booking Date &amp; Time:
+          </span>
+          <span class="receipt-row-value" id="res-datetime-val">Wed, Sep 30, 2026 at 09:00 AM</span>
+        </div>
+
+        <!-- Customer -->
+        <div class="receipt-row">
+          <span class="receipt-row-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Customer:
+          </span>
+          <span class="receipt-row-value" id="res-customer-val">Jordan Miller (jordan.miller@example.com)</span>
+        </div>
+
+        <!-- Payment Method -->
+        <div class="receipt-row">
+          <span class="receipt-row-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+            Payment Method:
+          </span>
+          <span class="receipt-row-value" id="res-method-val">Credit / Debit Card (Simulated)</span>
+        </div>
+
+        <!-- Amount Paid -->
+        <div class="receipt-row receipt-total-highlight">
+          <span style="font-weight: 700; color: var(--color-text-main);">Amount Paid:</span>
+          <span class="receipt-row-value" id="res-amount-val">$65.00</span>
+        </div>
+
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="payment-result-actions">
+        <!-- View Order Button -->
+        <button type="button" class="btn-view-order" id="btn-view-order">
+          <span>View Order</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14"/>
+            <path d="m12 5 7 7-7 7"/>
+          </svg>
+        </button>
+
+        <!-- Book Another Service -->
+        <a href="merchants.html" class="btn-back-home">
+          <span>Book Another Service</span>
+        </a>
+      </div>
+
+      <!-- Print / Download receipt shortcut -->
+      <button type="button" id="btn-print-receipt" style="background: none; border: none; font-size: var(--font-size-xs); color: var(--color-text-muted); cursor: pointer; text-decoration: underline;">
+        Print Receipt / Save as PDF
+      </button>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        
+        <!-- Brand Info -->
+        <div class="footer-brand">
+          <div class="nav-brand" style="margin-bottom: 0.75rem;">
+            <svg viewBox="0 0 40 40" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="10" fill="#2563EB"/>
+              <path d="M20 9L29.5 14.5V25.5L20 31L10.5 25.5V14.5L20 9Z" stroke="white" stroke-width="2.2" stroke-linejoin="round"/>
+              <circle cx="20" cy="20" r="3.5" fill="white"/>
+            </svg>
+            <span class="brand-name">Service<span>Hub</span></span>
+          </div>
+          <p class="footer-brand-desc">
+            The modern local service marketplace connecting customers with verified, professional merchants across home, automotive, repair, and lifestyle services.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="merchants.html" class="footer-link">Service Providers</a></li>
+            <li><a href="categories.html" class="footer-link">Categories</a></li>
+            <li><a href="login.html" class="footer-link">Customer Login</a></li>
+            <li><a href="signup.html" class="footer-link">Customer Sign Up</a></li>
+          </ul>
+        </div>
+
+        <!-- Merchant Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">For Merchants</h4>
+          <ul class="footer-links">
+            <li><a href="merchant-signup.html" class="footer-link">Register as Merchant</a></li>
+            <li><a href="login.html" class="footer-link">Merchant Login</a></li>
+            <li><a href="categories.html" class="footer-link">Category Guidelines</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Contact Information</h4>
+          <ul class="footer-contact-list">
+            <li class="contact-item">
+              <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              <span>support@servicehub.com</span>
+            </li>
+            <li class="contact-item">
+              <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>+1 (800) 555-SERV (7378)</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 ServiceHub Inc. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Terms of Service</a>
+          <a href="#" class="footer-link">Trust &amp; Safety</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="payment.js"></script>
+</body>
+</html>

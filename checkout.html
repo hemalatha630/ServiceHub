@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Review your customer information, scheduled appointment details, and billing summary before completing payment on ServiceHub.">
+  <title>Checkout &bull; ServiceHub</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="site-header">
+    <nav class="nav-container" aria-label="Main Navigation">
+      <a href="index.html" class="nav-brand" aria-label="ServiceHub Home">
+        <svg viewBox="0 0 40 40" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="10" fill="#2563EB"/>
+          <path d="M20 9L29.5 14.5V25.5L20 31L10.5 25.5V14.5L20 9Z" stroke="white" stroke-width="2.2" stroke-linejoin="round"/>
+          <circle cx="20" cy="20" r="3.5" fill="white"/>
+          <line x1="20" y1="9" x2="20" y2="16.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <line x1="29.5" y1="25.5" x2="23" y2="21.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <line x1="10.5" y1="25.5" x2="17" y2="21.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-name">Service<span>Hub</span></span>
+      </a>
+
+      <!-- Navigation Links -->
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="merchants.html" class="nav-link">Services</a></li>
+        <li><a href="categories.html" class="nav-link">Categories</a></li>
+        <li><a href="login.html" class="nav-link">Login</a></li>
+      </ul>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <a href="signup.html" class="btn btn-sm btn-primary">Sign Up</a>
+        <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Progress Step Tracker Bar -->
+  <div class="booking-steps-bar" aria-label="Checkout Progress">
+    <div class="booking-steps-container">
+      <div class="step-item completed">
+        <span class="step-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        </span>
+        <span class="step-label">Schedule &amp; Details</span>
+      </div>
+      <div class="step-divider" aria-hidden="true"></div>
+      <div class="step-item active">
+        <span class="step-badge">2</span>
+        <span class="step-label">Customer &amp; Review</span>
+      </div>
+      <div class="step-divider" aria-hidden="true"></div>
+      <div class="step-item">
+        <span class="step-badge">3</span>
+        <span class="step-label">Payment</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="checkout-page-container">
+    <div class="checkout-layout">
+      
+      <!-- Left Column: 1. Customer Information & 4. Payment Section Preview -->
+      <div class="checkout-main-col">
+        
+        <!-- 1. Customer Information Form -->
+        <section class="checkout-card" aria-labelledby="heading-customer-info">
+          <div class="checkout-card-header">
+            <h2 class="checkout-card-title" id="heading-customer-info">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+              <span>1. Customer Contact Information</span>
+            </h2>
+            <span style="font-size: var(--font-size-xs); color: var(--color-primary); font-weight: 600;">Required for Confirmation</span>
+          </div>
+
+          <form id="checkout-customer-form" novalidate>
+            <div class="customer-info-grid">
+              
+              <!-- Full Name -->
+              <div class="customer-field-group">
+                <label for="checkout-name" class="checkout-field-label">Full Name *</label>
+                <input 
+                  type="text" 
+                  id="checkout-name" 
+                  name="fullName" 
+                  class="checkout-input" 
+                  placeholder="e.g. Jordan Miller" 
+                  required 
+                  aria-required="true">
+                <span class="field-error" id="checkout-name-error" style="display: none; color: var(--color-error); font-size: var(--font-size-xs);">Please enter your full name.</span>
+              </div>
+
+              <!-- Phone Number -->
+              <div class="customer-field-group">
+                <label for="checkout-phone" class="checkout-field-label">Phone Number *</label>
+                <input 
+                  type="tel" 
+                  id="checkout-phone" 
+                  name="phone" 
+                  class="checkout-input" 
+                  placeholder="e.g. (555) 234-5678" 
+                  required 
+                  aria-required="true">
+                <span class="field-error" id="checkout-phone-error" style="display: none; color: var(--color-error); font-size: var(--font-size-xs);">Please enter a valid phone number.</span>
+              </div>
+
+              <!-- Email -->
+              <div class="customer-field-group full-width">
+                <label for="checkout-email" class="checkout-field-label">Email Address *</label>
+                <input 
+                  type="email" 
+                  id="checkout-email" 
+                  name="email" 
+                  class="checkout-input" 
+                  placeholder="e.g. jordan.miller@example.com" 
+                  required 
+                  aria-required="true">
+                <span class="field-error" id="checkout-email-error" style="display: none; color: var(--color-error); font-size: var(--font-size-xs);">Please enter a valid email address.</span>
+                <span class="checkout-field-note">Your booking confirmation receipt and arrival notifications will be sent to this email.</span>
+              </div>
+
+            </div>
+          </form>
+        </section>
+
+        <!-- 4. Payment Section (Method Preview) -->
+        <section class="checkout-card" aria-labelledby="heading-payment-section">
+          <div class="checkout-card-header">
+            <h2 class="checkout-card-title" id="heading-payment-section">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="20" height="14" x="2" y="5" rx="2"/>
+                <line x1="2" y1="10" x2="22" y2="10"/>
+              </svg>
+              <span>2. Payment Preference</span>
+            </h2>
+            <span style="font-size: var(--font-size-xs); color: #059669; font-weight: 600;">Secure Encryption</span>
+          </div>
+
+          <p style="font-size: var(--font-size-sm); color: var(--color-text-muted); line-height: 1.5; margin: 0;">
+            Select your preferred payment method. Card processing is safely deferred to the upcoming payment step.
+          </p>
+
+          <div class="payment-methods-stack" id="payment-methods-list" role="radiogroup" aria-label="Select payment method">
+            
+            <!-- Option 1: Credit / Debit Card -->
+            <div class="payment-method-option selected" data-method="card" role="radio" aria-checked="true" tabindex="0">
+              <div class="payment-option-left">
+                <div class="payment-radio-circle" aria-hidden="true"></div>
+                <div>
+                  <h3 class="payment-option-title">Credit or Debit Card</h3>
+                  <p class="payment-option-desc">Visa, Mastercard, American Express, Discover</p>
+                </div>
+              </div>
+              <div class="payment-icons-row" aria-hidden="true">
+                <svg width="28" height="20" viewBox="0 0 32 20" fill="none"><rect width="32" height="20" rx="3" fill="#1e293b"/><text x="6" y="14" fill="#ffffff" font-size="8" font-weight="700">CARD</text></svg>
+              </div>
+            </div>
+
+            <!-- Option 2: Digital Wallet -->
+            <div class="payment-method-option" data-method="wallet" role="radio" aria-checked="false" tabindex="0">
+              <div class="payment-option-left">
+                <div class="payment-radio-circle" aria-hidden="true"></div>
+                <div>
+                  <h3 class="payment-option-title">Digital Wallet</h3>
+                  <p class="payment-option-desc">Apple Pay &bull; Google Pay</p>
+                </div>
+              </div>
+              <div class="payment-icons-row" aria-hidden="true">
+                <svg width="28" height="20" viewBox="0 0 32 20" fill="none"><rect width="32" height="20" rx="3" fill="#f1f5f9" stroke="#cbd5e1"/><text x="7" y="14" fill="#0f172a" font-size="8" font-weight="700">PAY</text></svg>
+              </div>
+            </div>
+
+            <!-- Option 3: Pay After Completion -->
+            <div class="payment-method-option" data-method="completion" role="radio" aria-checked="false" tabindex="0">
+              <div class="payment-option-left">
+                <div class="payment-radio-circle" aria-hidden="true"></div>
+                <div>
+                  <h3 class="payment-option-title">Pay After Service Completion</h3>
+                  <p class="payment-option-desc">Pay directly to merchant after reviewing completed work</p>
+                </div>
+              </div>
+              <div class="payment-icons-row" aria-hidden="true">
+                <span style="font-size: 0.75rem; font-weight: 700; color: #059669; background-color: #ecfdf5; padding: 0.2rem 0.5rem; border-radius: var(--radius-sm);">ZERO RISK</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div style="background-color: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 0.875rem 1rem; display: flex; align-items: center; gap: 0.625rem; font-size: var(--font-size-xs); color: var(--color-text-muted);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: #059669; flex-shrink: 0;" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+            </svg>
+            <span>You will enter your payment credentials safely on the next step. No charges are captured right now.</span>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Right Column: 2. Service / Booking Summary & 3. Billing Summary & 5. Final Actions -->
+      <aside class="checkout-sidebar-col" aria-label="Booking and billing summary">
+        
+        <!-- 2. Service / Booking Summary Card -->
+        <section class="checkout-card" aria-labelledby="heading-booking-summary" style="padding: 1.75rem;">
+          <div class="checkout-card-header" style="margin-bottom: 0;">
+            <h2 class="checkout-card-title" id="heading-booking-summary" style="font-size: 1.125rem;">
+              <span>Booking Summary</span>
+            </h2>
+            <span class="merchant-cat-pill theme-cleaning" id="checkout-srv-cat">Cleaning</span>
+          </div>
+
+          <!-- Service Meta Preview -->
+          <div class="checkout-service-preview-row">
+            <img 
+              id="checkout-srv-img" 
+              class="checkout-service-thumb" 
+              src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=300&q=80" 
+              alt="Service image thumbnail">
+            
+            <div class="checkout-service-meta">
+              <h3 class="checkout-service-title" id="checkout-srv-title">Standard Residential Deep Clean &amp; Sanitization</h3>
+              <p class="checkout-merchant-sub">
+                <span>By</span>
+                <strong id="checkout-mch-name" style="color: var(--color-text-main);">SparkleClean Co.</strong>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </p>
+              <div style="font-size: var(--font-size-xs); color: var(--color-text-subtle);" id="checkout-srv-rate-label">
+                Rate: $65.00 / visit
+              </div>
+            </div>
+          </div>
+
+          <!-- Schedule Box -->
+          <div class="checkout-schedule-details-box">
+            <div class="schedule-detail-line">
+              <span class="schedule-detail-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Date:
+              </span>
+              <span class="schedule-detail-val" id="checkout-date-val">Wed, Sep 30, 2026</span>
+            </div>
+
+            <div class="schedule-detail-line">
+              <span class="schedule-detail-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+                Arrival Time:
+              </span>
+              <span class="schedule-detail-val" id="checkout-time-val">09:00 AM</span>
+            </div>
+
+            <div class="schedule-detail-line">
+              <span class="schedule-detail-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                Visits / Quantity:
+              </span>
+              <span class="schedule-detail-val" id="checkout-qty-val">1 visit</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. Billing Summary Card -->
+        <section class="billing-summary-card" aria-labelledby="heading-billing-summary">
+          <h2 class="cart-summary-title" id="heading-billing-summary">Billing Summary</h2>
+
+          <div class="billing-breakdown-list">
+            <div class="billing-line-row">
+              <span>Service Subtotal:</span>
+              <span id="billing-subtotal-val" style="font-weight: 600; color: var(--color-text-main);">$65.00</span>
+            </div>
+            
+            <div class="billing-line-row">
+              <span>Platform Service Fee:</span>
+              <span id="billing-fee-val" style="color: #059669; font-weight: 600;">FREE ($0.00)</span>
+            </div>
+
+            <div class="billing-line-row">
+              <span>Estimated Taxes:</span>
+              <span id="billing-tax-val" style="color: var(--color-text-muted);">$0.00</span>
+            </div>
+          </div>
+
+          <div class="billing-total-row">
+            <span>Total to Pay:</span>
+            <span id="billing-total-val" style="color: var(--color-primary); font-size: 1.5rem;">$65.00</span>
+          </div>
+
+          <!-- 5. Final Actions -->
+          <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;">
+            <!-- Proceed to Payment button -->
+            <button type="button" class="btn-proceed-payment" id="btn-proceed-payment">
+              <span>Proceed to Payment</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+              </svg>
+            </button>
+
+            <!-- Back to Cart option -->
+            <a href="booking.html" class="back-to-service-link" id="link-back-cart">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m15 18-6-6 6-6"/>
+              </svg>
+              <span>Back to Booking / Cart</span>
+            </a>
+          </div>
+
+          <!-- Guarantees -->
+          <div class="trust-badges-list" style="margin-top: 0.5rem; padding-top: 1rem; border-top: 1px solid var(--color-border);">
+            <div class="trust-badge-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>256-bit encrypted secure checkout</span>
+            </div>
+            <div class="trust-badge-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>ServiceHub 100% Quality &amp; Safety Guarantee</span>
+            </div>
+          </div>
+        </section>
+
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Payment Navigation Preview Dialog / Modal -->
+  <div class="service-modal-backdrop" id="payment-nav-modal" role="dialog" aria-modal="true" aria-labelledby="modal-payment-title" hidden>
+    <div class="service-modal" style="max-width: 480px;">
+      <button type="button" class="modal-close-btn" id="modal-payment-close" aria-label="Close dialog">&times;</button>
+      
+      <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+        <span class="merchant-cat-pill theme-cleaning" id="modal-payment-cat">Cleaning</span>
+        <span style="font-size: var(--font-size-xs); color: #059669; font-weight: 700;">&bull; Ready for Payment</span>
+      </div>
+
+      <h3 class="service-title" id="modal-payment-title" style="font-size: 1.375rem; margin-bottom: 0.35rem;">Redirecting to Payment</h3>
+      <p style="font-size: var(--font-size-xs); color: var(--color-text-muted); margin-bottom: 1.25rem;">
+        Your customer information and appointment details have been verified.
+      </p>
+
+      <div style="background-color: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.25rem; display: flex; flex-direction: column; gap: 0.625rem; font-size: var(--font-size-sm);">
+        <div style="display: flex; justify-content: space-between;">
+          <span style="color: var(--color-text-muted);">Customer:</span>
+          <strong id="modal-pay-customer" style="color: var(--color-text-main);">Jordan Miller</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <span style="color: var(--color-text-muted);">Email:</span>
+          <strong id="modal-pay-email" style="color: var(--color-text-main);">jordan.miller@example.com</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <span style="color: var(--color-text-muted);">Phone:</span>
+          <strong id="modal-pay-phone" style="color: var(--color-text-main);">(555) 234-5678</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <span style="color: var(--color-text-muted);">Payment Method:</span>
+          <strong id="modal-pay-method" style="color: var(--color-primary);">Credit or Debit Card</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding-top: 0.75rem; border-top: 1px dashed var(--color-border);">
+          <span style="font-weight: 700; color: var(--color-text-main);">Total Invoice:</span>
+          <strong id="modal-pay-total" style="font-size: 1.25rem; color: var(--color-primary);">$65.00</strong>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 0.75rem;">
+        <button type="button" class="btn btn-secondary" id="modal-payment-cancel" style="flex: 1;">Cancel</button>
+        <button type="button" class="btn btn-primary" id="modal-payment-confirm" style="flex: 1.5;">Confirm &amp; Pay</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        
+        <!-- Brand Info -->
+        <div class="footer-brand">
+          <div class="nav-brand" style="margin-bottom: 0.75rem;">
+            <svg viewBox="0 0 40 40" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="10" fill="#2563EB"/>
+              <path d="M20 9L29.5 14.5V25.5L20 31L10.5 25.5V14.5L20 9Z" stroke="white" stroke-width="2.2" stroke-linejoin="round"/>
+              <circle cx="20" cy="20" r="3.5" fill="white"/>
+            </svg>
+            <span class="brand-name">Service<span>Hub</span></span>
+          </div>
+          <p class="footer-brand-desc">
+            The modern local service marketplace connecting customers with verified, professional merchants across home, automotive, repair, and lifestyle services.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="merchants.html" class="footer-link">Service Providers</a></li>
+            <li><a href="categories.html" class="footer-link">Categories</a></li>
+            <li><a href="login.html" class="footer-link">Customer Login</a></li>
+            <li><a href="signup.html" class="footer-link">Customer Sign Up</a></li>
+          </ul>
+        </div>
+
+        <!-- Merchant Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">For Merchants</h4>
+          <ul class="footer-links">
+            <li><a href="merchant-signup.html" class="footer-link">Register as Merchant</a></li>
+            <li><a href="login.html" class="footer-link">Merchant Login</a></li>
+            <li><a href="categories.html" class="footer-link">Category Guidelines</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Contact Information</h4>
+          <ul class="footer-contact-list">
+            <li class="contact-item">
+              <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              <span>support@servicehub.com</span>
+            </li>
+            <li class="contact-item">
+              <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>+1 (800) 555-SERV (7378)</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 ServiceHub Inc. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Terms of Service</a>
+          <a href="#" class="footer-link">Trust &amp; Safety</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="checkout.js"></script>
+</body>
+</html>

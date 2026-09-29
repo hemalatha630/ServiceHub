@@ -339,20 +339,27 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   }
 
-  if (btnBookNow) btnBookNow.addEventListener('click', openBookingModal);
+  // 5. "Book Now" Button continues directly to the Booking / Cart Page
+  if (btnBookNow) {
+    btnBookNow.addEventListener('click', () => {
+      window.location.href = `booking.html?id=${encodeURIComponent(service.id)}`;
+    });
+  }
+
+  // Cart button in navbar opens booking / cart page
+  const navCartBtn = document.getElementById('nav-cart-btn');
+  if (navCartBtn) {
+    navCartBtn.addEventListener('click', () => {
+      window.location.href = `booking.html?id=${encodeURIComponent(service.id)}`;
+    });
+  }
+
   if (modalClose) modalClose.addEventListener('click', closeBookingModal);
   if (modalCancel) modalCancel.addEventListener('click', closeBookingModal);
 
   if (modalConfirm) {
     modalConfirm.addEventListener('click', () => {
-      modalConfirm.textContent = 'Request Confirmed!';
-      modalConfirm.style.backgroundColor = '#059669';
-      setTimeout(() => {
-        closeBookingModal();
-        modalConfirm.textContent = 'Confirm Request';
-        modalConfirm.style.backgroundColor = '';
-        showCartToast('Booking inquiry submitted successfully! The merchant will confirm shortly.');
-      }, 700);
+      window.location.href = `booking.html?id=${encodeURIComponent(service.id)}`;
     });
   }
 

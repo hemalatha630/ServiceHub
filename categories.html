@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore service categories on ServiceHub - Home, Beauty, Pet, Automotive, Education, Repair, Cleaning, and more.">
+  <title>Service Categories &bull; ServiceHub</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 1. Navbar -->
+  <header class="site-header">
+    <nav class="nav-container" aria-label="Main Navigation">
+      <a href="index.html" class="nav-brand" aria-label="ServiceHub Home">
+        <svg viewBox="0 0 40 40" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="10" fill="#2563EB"/>
+          <path d="M20 9L29.5 14.5V25.5L20 31L10.5 25.5V14.5L20 9Z" stroke="white" stroke-width="2.2" stroke-linejoin="round"/>
+          <circle cx="20" cy="20" r="3.5" fill="white"/>
+          <line x1="20" y1="9" x2="20" y2="16.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <line x1="29.5" y1="25.5" x2="23" y2="21.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <line x1="10.5" y1="25.5" x2="17" y2="21.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-name">Service<span>Hub</span></span>
+      </a>
+
+      <!-- Navigation Links -->
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="index.html#services" class="nav-link">Services</a></li>
+        <li><a href="categories.html" class="nav-link active" aria-current="page">Categories</a></li>
+        <li><a href="login.html" class="nav-link">Login</a></li>
+      </ul>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <a href="signup.html" class="btn btn-sm btn-primary">Sign Up</a>
+        <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Categories Hero / Header -->
+    <section class="categories-hero">
+      <div class="categories-hero-wrapper">
+        <div class="hero-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="7" height="7" x="3" y="3" rx="1"/>
+            <rect width="7" height="7" x="14" y="3" rx="1"/>
+            <rect width="7" height="7" x="14" y="14" rx="1"/>
+            <rect width="7" height="7" x="3" y="14" rx="1"/>
+          </svg>
+          <span>Marketplace Directory</span>
+        </div>
+        <h1 class="hero-title" style="font-size: 2.25rem;">Explore All Categories</h1>
+        <p class="hero-description" style="margin-bottom: 0;">
+          Browse 8 main service categories to find vetted local merchants, check real customer ratings, and book with confidence.
+        </p>
+
+        <!-- Quick Live Filter -->
+        <div class="category-filter-bar">
+          <span class="category-search-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </span>
+          <input 
+            type="search" 
+            id="category-search-input" 
+            class="category-search-input" 
+            placeholder="Filter categories (e.g. cleaning, auto, pet)..." 
+            aria-label="Filter categories">
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Grid Section -->
+    <section class="section-container" style="padding-top: 3.5rem;">
+      <div class="categories-detailed-grid" id="categories-grid" role="list">
+
+        <!-- 1. Home -->
+        <article class="cat-detailed-card" data-category="Home" data-keywords="home carpentry painting interior decor remodeling furniture" role="listitem">
+          <div class="cat-card-top">
+            <div class="cat-detailed-icon-box theme-home" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <span class="cat-service-count">140+ Services</span>
+          </div>
+
+          <h2 class="cat-detailed-title">Home</h2>
+          <p class="cat-detailed-desc">
+            Interior improvements, carpentry, appliance installation, landscaping, electrical setups, and home remodeling services.
+          </p>
+
+          <div class="cat-tags-wrap" aria-label="Popular home services">
+            <span class="cat-mini-tag">Carpentry</span>
+            <span class="cat-mini-tag">Painting</span>
+            <span class="cat-mini-tag">Interior Decor</span>
+            <span class="cat-mini-tag">Remodeling</span>
+          </div>
+
+          <a href="index.html?category=Home#services" class="cat-btn-view" aria-label="View Home Services">
+            <span>View Services</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"/>
+              <path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+        </article>
+
+        <!-- 2. Beauty -->
+        <article class="cat-detailed-card" data-category="Beauty" data-keywords="beauty hair styling makeup skincare salon manicure pedicure" role="listitem">
+          <div class="cat-card-top">
+            <div class="cat-detailed-icon-box theme-beauty" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="6" cy="6" r="3"/>
+                <circle cx="6" cy="18" r="3"/>
+                <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+                <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+                <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+              </svg>
+            </div>
+            <span class="cat-service-count">95+ Services</span>
+          </div>
+
+          <h2 class="cat-detailed-title">Beauty</h2>
+          <p class="cat-detailed-desc">
+            Personal care, bespoke haircutting, color treatments, skincare, nail spa, and makeup artists for special occasions.
+          </p>
+
+          <div class="cat-tags-wrap" aria-label="Popular beauty services">
+            <span class="cat-mini-tag">Hair Styling</span>
+            <span class="cat-mini-tag">Skincare</span>
+            <span class="cat-mini-tag">Nail Art</span>
+            <span class="cat-mini-tag">Makeup</span>
+          </div>
+
+          <a href="index.html?category=Beauty#services" class="cat-btn-view" aria-label="View Beauty Services">
+            <span>View Services</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"/>
+              <path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+        </article>
+
+        <!-- 3. Pet -->
+        <article class="cat-detailed-card" data-category="Pet" data-keywords="pet dog cat grooming walking boarding bath training" role="listitem">
+          <div class="cat-card-top">
+            <div class="cat-detailed-icon-box theme-pet" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="4" r="2"/>
+                <circle cx="18" cy="8" r="2"/>
+                <circle cx="20" cy="16" r="2"/>
+                <path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.8A3.5 3.5 0 0 1 5.5 10Z"/>
+              </svg>
+            </div>
+            <span class="cat-service-count">60+ Services</span>
+          </div>
+
+          <h2 class="cat-detailed-title">Pet</h2>
+          <p class="cat-detailed-desc">
+            Full-service pet grooming, hygienic baths, dog walking, boarding, veterinary consultation, and positive behavioral training.
+          </p>
+
+          <div class="cat-tags-wrap" aria-label="Popular pet services">
+            <span class="cat-mini-tag">Grooming</span>
+            <span class="cat-mini-tag">Dog Walking</span>
+            <span class="cat-mini-tag">Baths</span>
+            <span class="cat-mini-tag">Training</span>
+          </div>
+
+          <a href="index.html?category=Pet#services" class="cat-btn-view" aria-label="View Pet Services">
+            <span>View Services</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"/>
+              <path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+        </article>
+
+        <!-- 4. Automotive -->
+        <article class="cat-detailed-card" data-category="Automotive" data-keywords="automotive car detailing wash oil change brakes repair diagnostics" role="listitem">
+          <div class="cat-card-top">
+            <div class="cat-detailed-icon-box theme-automotive" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="16" height="10" x="4" y="6" rx="2"/>
+                <circle cx="8" cy="16" r="2"/>
+                <circle cx="16" cy="16" r="2"/>
+                <path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/>
+              </svg>
+            </div>
+            <span class="cat-service-count">85+ Services</span>
+          </div>
+
+          <h2 class="cat-detailed-title">Automotive</h2>
+          <p class="cat-detailed-desc">
+            Mobile car wash, ceramic detailing, oil changes, brake repairs, battery replacements, and comprehensive vehicle diagnostics.
+          </p>
+
+          <div class="cat-tags-wrap" aria-label="Popular automotive services">
+            <span class="cat-mini-tag">Mobile Detailing</span>
+            <span class="cat-mini-tag">Oil Change</span>
+            <span class="cat-mini-tag">Diagnostics</span>
+            <span class="cat-mini-tag">Brake Service</span>
+          </div>
+
+          <a href="index.html?category=Automotive#services" class="cat-btn-view" aria-label="View Automotive Services">
+            <span>View Services</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"/>
+              <path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+        </article>
+
+        <!-- 5. Education -->
+        <article class="cat-detailed-card" data-category="Education" data-keywords="education tutoring math science languages test prep college music" role="listitem">
+          <div class="cat-card-top">
+            <div class="cat-detailed-icon-box theme-education" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+              </svg>
+            </div>
+            <span class="cat-service-count">70+ Services</span>
+          </div>
+
+          <h2 class="cat-detailed-title">Education</h2>
+          <p class="cat-detailed-desc">
+            Private K-12 tutoring, university entrance prep, STEM coaching, foreign language fluency, and creative music lessons.
+          </p>
+
+          <div class="cat-tags-wrap" aria-label="Popular education services">
+            <span class="cat-mini-tag">Math &amp; STEM</span>
+            <span class="cat-mini-tag">Test Prep</span>
+            <span class="cat-mini-tag">Languages</span>
+            <span class="cat-mini-tag">Music Lessons</span>
+          </div>
+
+          <a href="index.html?category=Education#services" class="cat-btn-view" aria-label="View Education Services">
+            <span>View Services</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"/>
+              <path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+        </article>
+
+        <!-- 6. Repair -->
+        <article class="cat-detailed-card" data-category="Repair" data-keywords="repair plumbing hvac pipes maintenance appliance electrical handyman" role="listitem">
+          <div class="cat-card-top">
+            <div class="cat-detailed-icon-box theme-repair" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </div>
+            <span class="cat-service-count">110+ Services</span>
+          </div>
+
+          <h2 class="cat-detailed-title">Repair</h2>
+          <p class="cat-detailed-desc">
+            Licensed plumbing repair, pipe inspection, HVAC heating &amp; cooling maintenance, appliance troubleshooting, and handyman services.
+          </p>
+
+          <div class="cat-tags-wrap" aria-label="Popular repair services">
+            <span class="cat-mini-tag">Plumbing</span>
+            <span class="cat-mini-tag">HVAC Heating</span>
+            <span class="cat-mini-tag">Appliances</span>
+            <span class="cat-mini-tag">Handyman</span>
+          </div>
+
+          <a href="index.html?category=Repair#services" class="cat-btn-view" aria-label="View Repair Services">
+            <span>View Services</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"/>
+              <path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+        </article>
+
+        <!-- 7. Cleaning -->
+        <article class="cat-detailed-card" data-category="Cleaning" data-keywords="cleaning deep clean home sanitization maid move-out office disinfection" role="listitem">
+          <div class="cat-card-top">
+            <div class="cat-detailed-icon-box theme-cleaning" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+              </svg>
+            </div>
+            <span class="cat-service-count">130+ Services</span>
+          </div>
+
+          <h2 class="cat-detailed-title">Cleaning</h2>
+          <p class="cat-detailed-desc">
+            Standard residential cleaning, deep move-in/move-out sanitization, post-renovation cleanup, and commercial office maintenance.
+          </p>
+
+          <div class="cat-tags-wrap" aria-label="Popular cleaning services">
+            <span class="cat-mini-tag">Deep Cleaning</span>
+            <span class="cat-mini-tag">Move-In / Out</span>
+            <span class="cat-mini-tag">Office Sanitizing</span>
+            <span class="cat-mini-tag">Carpet Wash</span>
+          </div>
+
+          <a href="index.html?category=Cleaning#services" class="cat-btn-view" aria-label="View Cleaning Services">
+            <span>View Services</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"/>
+              <path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+        </article>
+
+        <!-- 8. Other Services -->
+        <article class="cat-detailed-card" data-category="Other" data-keywords="other services photography catering delivery moving specialty custom" role="listitem">
+          <div class="cat-card-top">
+            <div class="cat-detailed-icon-box theme-other" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="1"/>
+                <circle cx="12" cy="5" r="1"/>
+                <circle cx="12" cy="19" r="1"/>
+                <circle cx="19" cy="12" r="1"/>
+                <circle cx="5" cy="12" r="1"/>
+                <circle cx="17" cy="17" r="1"/>
+                <circle cx="7" cy="7" r="1"/>
+                <circle cx="17" cy="7" r="1"/>
+                <circle cx="7" cy="17" r="1"/>
+              </svg>
+            </div>
+            <span class="cat-service-count">50+ Services</span>
+          </div>
+
+          <h2 class="cat-detailed-title">Other Services</h2>
+          <p class="cat-detailed-desc">
+            Event photography, private catering, courier delivery, moving assistance, and specialty custom services tailored to your request.
+          </p>
+
+          <div class="cat-tags-wrap" aria-label="Popular other services">
+            <span class="cat-mini-tag">Event Photo</span>
+            <span class="cat-mini-tag">Moving Help</span>
+            <span class="cat-mini-tag">Catering</span>
+            <span class="cat-mini-tag">Specialty</span>
+          </div>
+
+          <a href="index.html?category=Other#services" class="cat-btn-view" aria-label="View Other Services">
+            <span>View Services</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"/>
+              <path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Merchant CTA Banner -->
+    <section class="cta-section" style="padding-top: 1rem;">
+      <div class="cta-banner" style="background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);">
+        <div class="cta-banner-content">
+          <h2 class="cta-title">Offer Your Services on ServiceHub</h2>
+          <p class="cta-desc">
+            Are you a skilled merchant or business owner? List your offerings in any of these 8 categories and start getting client requests.
+          </p>
+          <div class="cta-btn-group">
+            <a href="merchant-signup.html" class="btn btn-cta-white">
+              <span>Register as Merchant</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+              </svg>
+            </a>
+            <a href="index.html#services" class="btn btn-cta-ghost">View All Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        
+        <!-- Brand Info -->
+        <div class="footer-brand">
+          <div class="nav-brand" style="margin-bottom: 0.75rem;">
+            <svg viewBox="0 0 40 40" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="10" fill="#2563EB"/>
+              <path d="M20 9L29.5 14.5V25.5L20 31L10.5 25.5V14.5L20 9Z" stroke="white" stroke-width="2.2" stroke-linejoin="round"/>
+              <circle cx="20" cy="20" r="3.5" fill="white"/>
+            </svg>
+            <span class="brand-name">Service<span>Hub</span></span>
+          </div>
+          <p class="footer-brand-desc">
+            The modern local service marketplace connecting customers with verified, professional merchants across home, automotive, repair, and lifestyle services.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="index.html#services" class="footer-link">Services</a></li>
+            <li><a href="categories.html" class="footer-link">Categories</a></li>
+            <li><a href="login.html" class="footer-link">Customer Login</a></li>
+            <li><a href="signup.html" class="footer-link">Customer Sign Up</a></li>
+          </ul>
+        </div>
+
+        <!-- Merchant Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">For Merchants</h4>
+          <ul class="footer-links">
+            <li><a href="merchant-signup.html" class="footer-link">Register as Merchant</a></li>
+            <li><a href="login.html" class="footer-link">Merchant Login</a></li>
+            <li><a href="index.html#services" class="footer-link">How It Works</a></li>
+            <li><a href="categories.html" class="footer-link">Service Categories</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Contact Information</h4>
+          <ul class="footer-contact-list">
+            <li class="contact-item">
+              <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              <span>support@servicehub.com</span>
+            </li>
+            <li class="contact-item">
+              <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>+1 (800) 555-SERV (7378)</span>
+            </li>
+            <li class="contact-item">
+              <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              <span>Mon - Fri: 8:00 AM - 7:00 PM EST</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 ServiceHub Inc. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Terms of Service</a>
+          <a href="#" class="footer-link">Trust &amp; Safety</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="categories.js"></script>
+</body>
+</html>

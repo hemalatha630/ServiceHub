@@ -316,7 +316,9 @@ body {
   transition: color var(--transition-fast);
 }
 
-.form-input {
+.form-input,
+.form-select,
+.form-textarea {
   width: 100%;
   min-height: 48px;
   padding: 0.75rem 0.875rem 0.75rem 2.625rem;
@@ -330,38 +332,77 @@ body {
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
+.form-select {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 2.5rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.875rem center;
+}
+
+.form-textarea {
+  min-height: 88px;
+  resize: vertical;
+  line-height: 1.5;
+  padding-top: 0.75rem;
+}
+
+.input-container.textarea-container {
+  align-items: flex-start;
+}
+
+.input-container.textarea-container .input-icon {
+  top: 0.875rem;
+}
+
 .form-input.has-toggle {
   padding-right: 2.75rem;
 }
 
-.form-input::placeholder {
+.form-input::placeholder,
+.form-textarea::placeholder {
   color: var(--color-text-subtle);
 }
 
-.form-input:hover {
+.form-input:hover,
+.form-select:hover,
+.form-textarea:hover {
   border-color: var(--color-border-hover);
 }
 
-.form-input:focus {
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
   outline: none;
   border-color: var(--color-border-focus);
   box-shadow: 0 0 0 3px var(--color-primary-ring);
 }
 
 .form-input:focus + .input-icon,
+.form-select:focus + .input-icon,
+.form-textarea:focus + .input-icon,
 .input-container:focus-within .input-icon {
   color: var(--color-primary);
 }
 
 /* User-invalid and manual error states */
 .form-input:user-invalid,
-.form-group.has-error .form-input {
+.form-select:user-invalid,
+.form-textarea:user-invalid,
+.form-group.has-error .form-input,
+.form-group.has-error .form-select,
+.form-group.has-error .form-textarea {
   border-color: var(--color-error);
   background-color: #fffaf9;
 }
 
 .form-input:user-invalid:focus,
-.form-group.has-error .form-input:focus {
+.form-select:user-invalid:focus,
+.form-textarea:user-invalid:focus,
+.form-group.has-error .form-input:focus,
+.form-group.has-error .form-select:focus,
+.form-group.has-error .form-textarea:focus {
   box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
 }
 
@@ -698,3 +739,45 @@ body {
   color: var(--color-text-subtle);
   margin-top: 1rem;
 }
+
+/* --------------------------------------------------------------------------
+   Merchant Layout Additions
+   -------------------------------------------------------------------------- */
+.wide-wrapper {
+  max-width: 580px;
+}
+
+.merchant-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.char-counter {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-subtle);
+  text-align: right;
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 600px) {
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+

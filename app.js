@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const togglePasswordBtn = document.getElementById('toggle-password');
   const loginButton = document.getElementById('login-button');
   const statusMessage = document.getElementById('status-message');
+  const signupLink = document.getElementById('signup-link');
 
   // Role Configuration
   const roleConfig = {
@@ -24,13 +25,17 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Customer',
       subtitle: 'Sign in to book and track your service requests',
       emailPlaceholder: 'customer@example.com',
-      submitText: 'Sign In as Customer'
+      submitText: 'Sign In as Customer',
+      signupHref: 'signup.html',
+      signupText: 'Sign up'
     },
     merchant: {
       title: 'Merchant',
       subtitle: 'Sign in to manage your business services and clients',
       emailPlaceholder: 'merchant@business.com',
-      submitText: 'Sign In as Merchant'
+      submitText: 'Sign In as Merchant',
+      signupHref: 'merchant-signup.html',
+      signupText: 'Sign up as Merchant'
     }
   };
 
@@ -56,6 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const config = roleConfig[role];
     roleSubtitle.textContent = config.subtitle;
     emailInput.placeholder = config.emailPlaceholder;
+
+    // Update signup link dynamically
+    if (signupLink) {
+      signupLink.href = config.signupHref;
+      signupLink.textContent = config.signupText;
+    }
 
     // Update button text cleanly
     const btnText = loginButton.querySelector('.btn-text');

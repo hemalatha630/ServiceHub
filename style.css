@@ -2158,6 +2158,723 @@ body {
   }
 }
 
+/* ==========================================================================
+   FEATURE 7: Professional Merchant Profile Page Styles
+   ========================================================================== */
+
+/* Breadcrumb Navigation */
+.profile-breadcrumb-bar {
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.875rem 1.5rem;
+}
+
+.profile-breadcrumb-list {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  list-style: none;
+  padding: 0;
+}
+
+.profile-breadcrumb-list a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.profile-breadcrumb-list a:hover {
+  color: var(--color-primary);
+}
+
+.breadcrumb-separator {
+  color: var(--color-text-subtle);
+  user-select: none;
+}
+
+.breadcrumb-current {
+  color: var(--color-text-main);
+  font-weight: 600;
+}
+
+/* 1. Merchant Header & Banner */
+.profile-banner-wrap {
+  position: relative;
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
+  height: 180px;
+  overflow: hidden;
+}
+
+.profile-banner-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.15;
+  background-image: radial-gradient(#ffffff 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.profile-header-container {
+  max-width: 1200px;
+  margin: -70px auto 2rem;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.profile-header-card {
+  background-color: #ffffff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.profile-header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.profile-identity-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.profile-avatar-large {
+  width: 90px;
+  height: 90px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 2.25rem;
+  box-shadow: 0 8px 16px -4px rgba(16, 185, 129, 0.35);
+  border: 4px solid #ffffff;
+  flex-shrink: 0;
+}
+
+.profile-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.profile-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  flex-wrap: wrap;
+}
+
+.profile-verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background-color: #ecfdf5;
+  color: #065f46;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-full);
+  border: 1px solid #a7f3d0;
+}
+
+.profile-title-name {
+  font-size: 1.875rem;
+  font-weight: 800;
+  color: var(--color-text-main);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.profile-meta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.profile-rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background-color: #fffbeb;
+  color: #92400e;
+  border: 1px solid #fde68a;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+}
+
+.profile-location-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--color-text-muted);
+}
+
+.profile-desc-summary {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 800px;
+}
+
+.profile-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* 2-Column Main Layout */
+.profile-layout-container {
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.profile-main-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.profile-sidebar-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: sticky;
+  top: 90px;
+}
+
+/* Section Cards */
+.profile-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.profile-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.875rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.profile-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin: 0;
+}
+
+.profile-card-title svg {
+  color: var(--color-primary);
+}
+
+/* 2. About Merchant & Facts Grid */
+.about-text-content {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.business-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.business-fact-item {
+  background-color: #f8fafc;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.fact-item-label {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  color: var(--color-text-subtle);
+}
+
+.fact-item-value {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+/* 3. Services Offered Cards */
+.services-offered-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.profile-service-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.profile-service-card:hover {
+  border-color: #93c5fd;
+  box-shadow: 0 4px 12px -2px rgba(37, 99, 235, 0.08);
+  transform: translateY(-2px);
+}
+
+.service-card-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.service-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.service-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.service-item-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin: 0;
+}
+
+.service-item-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 480px;
+}
+
+.service-meta-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.375rem;
+}
+
+.service-duration-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  background-color: #f1f5f9;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+}
+
+.service-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.625rem;
+  flex-shrink: 0;
+}
+
+.service-item-price {
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: var(--color-text-main);
+}
+
+/* 4. Availability Schedule */
+.availability-badge-alert {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #065f46;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+.availability-schedule-table {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.schedule-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+}
+
+.schedule-row:nth-child(odd) {
+  background-color: #f8fafc;
+}
+
+.schedule-day {
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.schedule-time {
+  color: var(--color-text-muted);
+}
+
+.schedule-closed {
+  color: var(--color-text-subtle);
+  font-style: italic;
+}
+
+/* 5. Customer Reviews */
+.reviews-summary-card {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 2rem;
+  background-color: #f8fafc;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin-bottom: 1.75rem;
+  align-items: center;
+}
+
+.rating-score-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.rating-big-number {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: var(--color-text-main);
+  line-height: 1;
+}
+
+.rating-stars-gold {
+  color: #eab308;
+  font-size: 1.125rem;
+  margin: 0.375rem 0;
+}
+
+.rating-score-sub {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.rating-bars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.rating-bar-row {
+  display: grid;
+  grid-template-columns: 35px 1fr 35px;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.bar-track {
+  height: 8px;
+  background-color: #e2e8f0;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background-color: #eab308;
+  border-radius: var(--radius-full);
+}
+
+.customer-reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.customer-review-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  background-color: #ffffff;
+}
+
+.reviewer-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.reviewer-profile-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.reviewer-avatar-init {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background-color: #e2e8f0;
+  color: #475569;
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reviewer-name {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin: 0;
+}
+
+.review-date {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-subtle);
+}
+
+.review-comment-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 6. Contact Information Card */
+.contact-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-detail-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+}
+
+.contact-icon-bubble {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-content-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-col-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-subtle);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contact-col-value {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-main);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact-col-value:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* Trust Badges Card */
+.trust-badges-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.trust-badge-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+.trust-badge-item svg {
+  color: #10b981;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Service Details Modal Specifics */
+.service-details-meta-pill-group {
+  display: flex;
+  gap: 0.625rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.service-modal-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.service-modal-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.service-modal-feature-item svg {
+  color: #10b981;
+}
+
+/* Responsive Breakpoints for Profile */
+@media (max-width: 992px) {
+  .profile-layout-container {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-sidebar-col {
+    position: static;
+  }
+
+  .business-facts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .profile-identity-group {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .profile-badge-row {
+    justify-content: center;
+  }
+
+  .profile-meta-row {
+    justify-content: center;
+  }
+
+  .profile-header-actions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .profile-header-actions .btn {
+    width: 100%;
+  }
+
+  .reviews-summary-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .profile-service-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .service-card-right {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .business-facts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 
 

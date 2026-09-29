@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ServiceHub Merchant Dashboard - Manage your business profile, service offerings, customer bookings, orders, and reviews in one professional workspace.">
+  <title>Merchant Dashboard &bull; ServiceHub</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="dashboard-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="dashboard-sidebar" id="dashboard-sidebar" aria-label="Merchant Dashboard Navigation">
+      <div>
+        <!-- Sidebar Brand Header -->
+        <div class="dashboard-sidebar-header">
+          <a href="index.html" class="nav-brand" aria-label="ServiceHub Home">
+            <svg viewBox="0 0 40 40" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="10" fill="#2563EB"/>
+              <path d="M20 9L29.5 14.5V25.5L20 31L10.5 25.5V14.5L20 9Z" stroke="white" stroke-width="2.2" stroke-linejoin="round"/>
+              <circle cx="20" cy="20" r="3.5" fill="white"/>
+            </svg>
+            <span class="brand-name">Service<span>Hub</span></span>
+          </a>
+          <span class="merchant-portal-tag">Merchant Portal</span>
+        </div>
+
+        <!-- Sidebar Navigation Menu -->
+        <nav class="dashboard-nav" role="navigation">
+          <!-- 1. Overview -->
+          <button type="button" class="dashboard-nav-item active" data-view="overview" id="nav-btn-overview">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect width="7" height="9" x="3" y="3" rx="1"/>
+              <rect width="7" height="5" x="14" y="3" rx="1"/>
+              <rect width="7" height="9" x="14" y="12" rx="1"/>
+              <rect width="7" height="5" x="3" y="16" rx="1"/>
+            </svg>
+            <span>Overview</span>
+          </button>
+
+          <!-- 2. Orders -->
+          <button type="button" class="dashboard-nav-item" data-view="orders" id="nav-btn-orders">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+              <rect width="8" height="4" x="8" y="2" rx="1" ry="1"/>
+              <path d="M9 14h6"/>
+              <path d="M9 18h6"/>
+              <path d="M9 10h6"/>
+            </svg>
+            <span>Orders &amp; Bookings</span>
+          </button>
+
+          <!-- 3. Services -->
+          <button type="button" class="dashboard-nav-item" data-view="services" id="nav-btn-services">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+            <span>Services Catalog</span>
+          </button>
+
+          <!-- 4. Business Profile -->
+          <button type="button" class="dashboard-nav-item" data-view="profile" id="nav-btn-profile">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/>
+              <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/>
+              <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/>
+              <path d="M10 6h4"/>
+              <path d="M10 10h4"/>
+              <path d="M10 14h4"/>
+              <path d="M10 18h4"/>
+            </svg>
+            <span>Business Profile</span>
+          </button>
+
+          <!-- 5. Reviews -->
+          <button type="button" class="dashboard-nav-item" data-view="reviews" id="nav-btn-reviews">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+            <span>Reviews &amp; Ratings</span>
+          </button>
+        </nav>
+      </div>
+
+      <!-- Sidebar Footer (Merchant info & links) -->
+      <div class="dashboard-sidebar-footer">
+        <div class="sidebar-merchant-card">
+          <div class="sidebar-merchant-avatar" id="sidebar-avatar-initials">SC</div>
+          <div class="sidebar-merchant-info">
+            <span class="sidebar-merchant-name" id="sidebar-business-name">SparkleClean Co.</span>
+            <span class="sidebar-merchant-role">Verified Merchant</span>
+          </div>
+        </div>
+        
+        <div style="display: flex; flex-direction: column; gap: 0.35rem; padding-top: 0.5rem; border-top: 1px solid var(--color-border);">
+          <a href="merchant-profile.html?id=1" class="btn btn-secondary" style="font-size: var(--font-size-xs); padding: 0.4rem 0.75rem; justify-content: center; text-decoration: none;" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <span>Public Storefront</span>
+          </a>
+          <a href="index.html" class="back-to-service-link" style="font-size: 0.75rem;">
+            <span>Customer View &bull; Home</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Dashboard Area -->
+    <div class="dashboard-main">
+      
+      <!-- Topbar -->
+      <header class="dashboard-topbar">
+        <div class="dashboard-topbar-left">
+          <button type="button" class="mobile-toggle" id="sidebar-toggle" aria-label="Toggle navigation drawer" style="display: none;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          <h1 class="dashboard-view-title" id="dashboard-current-view-title">Overview</h1>
+        </div>
+
+        <div class="dashboard-topbar-right">
+          <div class="merchant-status-badge">
+            <span class="merchant-status-dot"></span>
+            <span>Accepting Bookings</span>
+          </div>
+
+          <button type="button" class="btn btn-sm btn-primary" id="topbar-add-service-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span>Add Service</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Dashboard Content Views -->
+      <main class="dashboard-content">
+        
+        <!-- =========================================================================
+             1. OVERVIEW VIEW
+             ========================================================================= -->
+        <section id="view-overview" class="dashboard-view-section">
+          
+          <!-- 1. Metric Cards Grid: Total Orders, Pending Orders, Completed Orders, Total Revenue -->
+          <div class="metric-cards-grid">
+            
+            <!-- Total Orders -->
+            <div class="metric-card">
+              <div class="metric-card-top">
+                <span class="metric-card-title">Total Orders</span>
+                <div class="metric-icon-wrap" style="background-color: #eff6ff; color: #2563eb;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/></svg>
+                </div>
+              </div>
+              <div class="metric-card-val" id="metric-total-orders">28</div>
+              <div class="metric-card-sub" style="color: #059669;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+                <span>+12% from last month</span>
+              </div>
+            </div>
+
+            <!-- Pending Orders -->
+            <div class="metric-card">
+              <div class="metric-card-top">
+                <span class="metric-card-title">Pending Orders</span>
+                <div class="metric-icon-wrap" style="background-color: #fffbeb; color: #d97706;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+                </div>
+              </div>
+              <div class="metric-card-val" id="metric-pending-orders">4</div>
+              <div class="metric-card-sub" style="color: #d97706;">
+                <span>Requires confirmation</span>
+              </div>
+            </div>
+
+            <!-- Completed Orders -->
+            <div class="metric-card">
+              <div class="metric-card-top">
+                <span class="metric-card-title">Completed Orders</span>
+                <div class="metric-icon-wrap" style="background-color: #ecfdf5; color: #059669;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+              </div>
+              <div class="metric-card-val" id="metric-completed-orders">21</div>
+              <div class="metric-card-sub" style="color: #059669;">
+                <span>75% completion rate</span>
+              </div>
+            </div>
+
+            <!-- Total Revenue -->
+            <div class="metric-card">
+              <div class="metric-card-top">
+                <span class="metric-card-title">Total Revenue</span>
+                <div class="metric-icon-wrap" style="background-color: #f0fdf4; color: #16a34a;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+              </div>
+              <div class="metric-card-val" id="metric-total-revenue">$3,485.00</div>
+              <div class="metric-card-sub" style="color: var(--color-text-muted);">
+                <span>All-time settled earnings</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Recent Bookings Table Preview -->
+          <div class="dashboard-card">
+            <div class="dashboard-card-header">
+              <h2 class="dashboard-card-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>
+                <span>Recent Bookings</span>
+              </h2>
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-see-all-orders">View All Orders &rarr;</button>
+            </div>
+
+            <div class="table-responsive-wrapper">
+              <table class="dashboard-table" aria-label="Recent Orders Table">
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Service</th>
+                    <th>Date &amp; Time</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Update Status</th>
+                  </tr>
+                </thead>
+                <tbody id="overview-orders-table-body">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- =========================================================================
+             2. ORDERS VIEW
+             ========================================================================= -->
+        <section id="view-orders" class="dashboard-view-section" style="display: none;">
+          
+          <div class="dashboard-card">
+            <div class="dashboard-card-header">
+              
+              <!-- Status Filters -->
+              <div class="orders-status-filters" id="orders-dashboard-filters" role="group" aria-label="Filter orders">
+                <button type="button" class="order-filter-pill active" data-status="all">
+                  <span>All (<span id="orders-count-all">0</span>)</span>
+                </button>
+                <button type="button" class="order-filter-pill" data-status="pending">
+                  <span>Pending (<span id="orders-count-pending">0</span>)</span>
+                </button>
+                <button type="button" class="order-filter-pill" data-status="confirmed">
+                  <span>Confirmed (<span id="orders-count-confirmed">0</span>)</span>
+                </button>
+                <button type="button" class="order-filter-pill" data-status="completed">
+                  <span>Completed (<span id="orders-count-completed">0</span>)</span>
+                </button>
+                <button type="button" class="order-filter-pill" data-status="cancelled">
+                  <span>Cancelled (<span id="orders-count-cancelled">0</span>)</span>
+                </button>
+              </div>
+
+              <!-- Quick Search Input -->
+              <div class="orders-search-box">
+                <svg class="orders-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="search" id="merchant-orders-search" class="orders-search-input" placeholder="Search orders..." aria-label="Search orders">
+              </div>
+
+            </div>
+
+            <!-- Orders Table -->
+            <div class="table-responsive-wrapper">
+              <table class="dashboard-table" aria-label="Merchant Orders Table">
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Customer Name</th>
+                    <th>Service Name</th>
+                    <th>Booking Date &amp; Time</th>
+                    <th>Amount</th>
+                    <th>Current Status</th>
+                    <th>Update Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="merchant-orders-table-body">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Empty Orders State -->
+            <div id="merchant-orders-empty" style="display: none; padding: 3rem 1.5rem; text-align: center; color: var(--color-text-muted);">
+              <p style="font-size: var(--font-size-sm); margin: 0;">No bookings matching this status.</p>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- =========================================================================
+             3. SERVICES VIEW
+             ========================================================================= -->
+        <section id="view-services" class="dashboard-view-section" style="display: none;">
+          
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <h2 style="font-size: 1.25rem; font-weight: 800; color: var(--color-text-main); margin: 0;">My Services Catalog</h2>
+              <p style="font-size: var(--font-size-xs); color: var(--color-text-muted); margin: 0.25rem 0 0;">
+                Manage the services available for customer booking, update pricing, or add new packages.
+              </p>
+            </div>
+            
+            <button type="button" class="btn btn-primary" id="btn-open-add-service">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>Add New Service</span>
+            </button>
+          </div>
+
+          <!-- Services Grid -->
+          <div class="services-management-grid" id="merchant-services-container">
+            <!-- Rendered dynamically -->
+          </div>
+
+        </section>
+
+        <!-- =========================================================================
+             4. BUSINESS PROFILE VIEW
+             ========================================================================= -->
+        <section id="view-profile" class="dashboard-view-section" style="display: none;">
+          
+          <div class="business-profile-grid">
+            
+            <!-- Left: Edit Form -->
+            <div class="dashboard-card" style="padding: 2rem;">
+              <h2 class="dashboard-card-title" style="margin-bottom: 1.5rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span>Edit Business Information</span>
+              </h2>
+
+              <form id="merchant-profile-form">
+                <div class="customer-info-grid">
+                  
+                  <!-- Business Name -->
+                  <div class="customer-field-group">
+                    <label for="prof-biz-name" class="checkout-field-label">Business Name *</label>
+                    <input type="text" id="prof-biz-name" class="checkout-input" required>
+                  </div>
+
+                  <!-- Category -->
+                  <div class="customer-field-group">
+                    <label for="prof-category" class="checkout-field-label">Primary Category *</label>
+                    <select id="prof-category" class="checkout-input">
+                      <option value="Cleaning">Cleaning</option>
+                      <option value="Home">Home Services</option>
+                      <option value="Automotive">Automotive</option>
+                      <option value="Beauty">Beauty &amp; Spa</option>
+                      <option value="Repair">Repair &amp; Maintenance</option>
+                      <option value="Pet">Pet Care</option>
+                      <option value="Education">Education &amp; Lessons</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+
+                  <!-- Owner Name -->
+                  <div class="customer-field-group">
+                    <label for="prof-owner-name" class="checkout-field-label">Owner Name</label>
+                    <input type="text" id="prof-owner-name" class="checkout-input">
+                  </div>
+
+                  <!-- Phone Number -->
+                  <div class="customer-field-group">
+                    <label for="prof-phone" class="checkout-field-label">Contact Phone *</label>
+                    <input type="tel" id="prof-phone" class="checkout-input" required>
+                  </div>
+
+                  <!-- Email Address -->
+                  <div class="customer-field-group full-width">
+                    <label for="prof-email" class="checkout-field-label">Contact Email *</label>
+                    <input type="email" id="prof-email" class="checkout-input" required>
+                  </div>
+
+                  <!-- Location -->
+                  <div class="customer-field-group full-width">
+                    <label for="prof-location" class="checkout-field-label">Business Address / Location *</label>
+                    <input type="text" id="prof-location" class="checkout-input" required>
+                  </div>
+
+                  <!-- Service Area -->
+                  <div class="customer-field-group full-width">
+                    <label for="prof-service-area" class="checkout-field-label">Service Area / Coverage Radius</label>
+                    <input type="text" id="prof-service-area" class="checkout-input">
+                  </div>
+
+                  <!-- Business Image URL -->
+                  <div class="customer-field-group full-width">
+                    <label for="prof-image-url" class="checkout-field-label">Business Image URL</label>
+                    <input type="url" id="prof-image-url" class="checkout-input">
+                  </div>
+
+                  <!-- Short Description -->
+                  <div class="customer-field-group full-width">
+                    <label for="prof-short-desc" class="checkout-field-label">Short Description</label>
+                    <textarea id="prof-short-desc" class="checkout-input" rows="2"></textarea>
+                  </div>
+
+                  <!-- Submit button -->
+                  <div class="customer-field-group full-width" style="margin-top: 1rem;">
+                    <button type="submit" class="btn btn-primary" id="btn-save-profile">Save Profile Changes</button>
+                  </div>
+
+                </div>
+              </form>
+            </div>
+
+            <!-- Right: Live Storefront Card Preview -->
+            <div class="profile-avatar-preview-box">
+              <img id="prof-preview-img" class="profile-avatar-large" src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=300&q=80" alt="Business Preview">
+              <div>
+                <h3 style="font-size: 1.125rem; font-weight: 800; color: var(--color-text-main); margin: 0;" id="prof-card-title">SparkleClean Co.</h3>
+                <span class="merchant-cat-pill theme-cleaning" id="prof-card-cat" style="margin-top: 0.35rem; display: inline-block;">Cleaning</span>
+              </div>
+              <p style="font-size: var(--font-size-xs); color: var(--color-text-muted); line-height: 1.5; margin: 0;" id="prof-card-desc">
+                Residential and commercial deep cleaning specialists with over 8 years of local experience.
+              </p>
+              <div style="font-size: var(--font-size-xs); color: var(--color-text-main); border-top: 1px solid var(--color-border); padding-top: 0.75rem; width: 100%; display: flex; flex-direction: column; gap: 0.35rem;">
+                <div id="prof-card-location">Central City, CA</div>
+                <div id="prof-card-phone" style="color: var(--color-primary); font-weight: 600;">+1 (555) 349-2810</div>
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+        <!-- =========================================================================
+             5. REVIEWS VIEW
+             ========================================================================= -->
+        <section id="view-reviews" class="dashboard-view-section" style="display: none;">
+          
+          <div class="reviews-dashboard-grid">
+            
+            <!-- Rating Summary Card -->
+            <div class="rating-overview-card">
+              <div style="font-size: var(--font-size-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted);">
+                Overall Customer Rating
+              </div>
+              <div class="rating-big-number">4.9</div>
+              
+              <!-- Stars -->
+              <div style="display: flex; gap: 0.25rem; color: #f59e0b;" aria-label="5 out of 5 stars">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+
+              <div style="font-size: var(--font-size-xs); color: var(--color-text-muted);">
+                Based on <strong>142 verified customer reviews</strong>
+              </div>
+
+              <!-- Rating Distribution Breakdown -->
+              <div style="width: 100%; display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem; font-size: var(--font-size-xs);">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <span style="width: 45px; text-align: right; color: var(--color-text-muted);">5 Star</span>
+                  <div style="flex: 1; height: 8px; background-color: #f1f5f9; border-radius: var(--radius-full); overflow: hidden;">
+                    <div style="width: 92%; height: 100%; background-color: #f59e0b;"></div>
+                  </div>
+                  <span style="width: 30px; font-weight: 600;">92%</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <span style="width: 45px; text-align: right; color: var(--color-text-muted);">4 Star</span>
+                  <div style="flex: 1; height: 8px; background-color: #f1f5f9; border-radius: var(--radius-full); overflow: hidden;">
+                    <div style="width: 6%; height: 100%; background-color: #f59e0b;"></div>
+                  </div>
+                  <span style="width: 30px; font-weight: 600;">6%</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <span style="width: 45px; text-align: right; color: var(--color-text-muted);">3 Star</span>
+                  <div style="flex: 1; height: 8px; background-color: #f1f5f9; border-radius: var(--radius-full); overflow: hidden;">
+                    <div style="width: 2%; height: 100%; background-color: #f59e0b;"></div>
+                  </div>
+                  <span style="width: 30px; font-weight: 600;">2%</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <span style="width: 45px; text-align: right; color: var(--color-text-muted);">2 Star</span>
+                  <div style="flex: 1; height: 8px; background-color: #f1f5f9; border-radius: var(--radius-full); overflow: hidden;">
+                    <div style="width: 0%; height: 100%; background-color: #f59e0b;"></div>
+                  </div>
+                  <span style="width: 30px; font-weight: 600;">0%</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <span style="width: 45px; text-align: right; color: var(--color-text-muted);">1 Star</span>
+                  <div style="flex: 1; height: 8px; background-color: #f1f5f9; border-radius: var(--radius-full); overflow: hidden;">
+                    <div style="width: 0%; height: 100%; background-color: #f59e0b;"></div>
+                  </div>
+                  <span style="width: 30px; font-weight: 600;">0%</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Customer Reviews List -->
+            <div class="reviews-list-stack" id="merchant-reviews-container">
+              <!-- Rendered dynamically -->
+            </div>
+
+          </div>
+
+        </section>
+
+      </main>
+
+    </div>
+  </div>
+
+  <!-- Modal: Add / Edit Service Dialog -->
+  <div class="service-modal-backdrop" id="service-modal" role="dialog" aria-modal="true" aria-labelledby="modal-service-form-title" hidden>
+    <div class="service-modal" style="max-width: 540px;">
+      <button type="button" class="modal-close-btn" id="modal-service-close" aria-label="Close dialog">&times;</button>
+      
+      <h3 class="service-title" id="modal-service-form-title" style="font-size: 1.35rem; margin-bottom: 0.25rem;">
+        Add New Service
+      </h3>
+      <p style="font-size: var(--font-size-xs); color: var(--color-text-muted); margin-bottom: 1.25rem;">
+        Enter service details for customer booking.
+      </p>
+
+      <form id="service-edit-form" novalidate>
+        <input type="hidden" id="service-form-id" value="">
+        
+        <div class="customer-info-grid">
+          
+          <!-- Service Name -->
+          <div class="customer-field-group full-width">
+            <label for="form-service-name" class="checkout-field-label">Service Name *</label>
+            <input type="text" id="form-service-name" class="checkout-input" placeholder="e.g. Move-in Deep Cleaning" required>
+            <span class="field-error" id="form-service-name-error" style="display: none; color: var(--color-error); font-size: var(--font-size-xs);">Service name is required.</span>
+          </div>
+
+          <!-- Price -->
+          <div class="customer-field-group">
+            <label for="form-service-price" class="checkout-field-label">Price ($) *</label>
+            <input type="number" id="form-service-price" class="checkout-input" placeholder="e.g. 85" min="1" step="1" required>
+            <span class="field-error" id="form-service-price-error" style="display: none; color: var(--color-error); font-size: var(--font-size-xs);">Enter a valid price.</span>
+          </div>
+
+          <!-- Duration -->
+          <div class="customer-field-group">
+            <label for="form-service-duration" class="checkout-field-label">Duration *</label>
+            <input type="text" id="form-service-duration" class="checkout-input" placeholder="e.g. 2 hours" required>
+            <span class="field-error" id="form-service-duration-error" style="display: none; color: var(--color-error); font-size: var(--font-size-xs);">Duration is required.</span>
+          </div>
+
+          <!-- Image URL -->
+          <div class="customer-field-group full-width">
+            <label for="form-service-image" class="checkout-field-label">Image URL *</label>
+            <input type="url" id="form-service-image" class="checkout-input" placeholder="https://images.unsplash.com/..." required>
+          </div>
+
+          <!-- Description -->
+          <div class="customer-field-group full-width">
+            <label for="form-service-desc" class="checkout-field-label">Description *</label>
+            <textarea id="form-service-desc" class="checkout-input" rows="3" placeholder="Explain what is included in this service..." required></textarea>
+            <span class="field-error" id="form-service-desc-error" style="display: none; color: var(--color-error); font-size: var(--font-size-xs);">Description is required.</span>
+          </div>
+
+          <!-- Modal Buttons -->
+          <div class="customer-field-group full-width" style="display: flex; gap: 0.75rem; margin-top: 0.5rem;">
+            <button type="button" class="btn btn-secondary" id="modal-service-cancel" style="flex: 1;">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="modal-service-save" style="flex: 1.5;">Save Service</button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Order Details Dialog -->
+  <div class="service-modal-backdrop" id="merchant-order-modal" role="dialog" aria-modal="true" aria-labelledby="modal-merchant-order-title" hidden>
+    <div class="service-modal" style="max-width: 520px;">
+      <button type="button" class="modal-close-btn" id="modal-merchant-order-close" aria-label="Close dialog">&times;</button>
+      
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; padding-right: 2rem;">
+        <span class="status-badge status-confirmed" id="modal-m-status">Confirmed</span>
+        <span style="font-family: monospace; font-weight: 700; color: var(--color-text-muted);" id="modal-m-order-id">#SH-2026-88492</span>
+      </div>
+
+      <h3 class="service-title" id="modal-merchant-order-title" style="font-size: 1.35rem; margin-bottom: 0.35rem;">
+        Standard Residential Deep Clean
+      </h3>
+      <div style="font-size: var(--font-size-xs); color: var(--color-text-muted); margin-bottom: 1.25rem;">
+        Customer Booking Receipt
+      </div>
+
+      <div class="order-modal-details-grid">
+        <div class="order-modal-section">
+          <div class="order-modal-section-title">Customer Information</div>
+          <div style="font-size: var(--font-size-sm); display: flex; flex-direction: column; gap: 0.35rem;">
+            <div><strong>Name:</strong> <span id="modal-m-cust-name">Jordan Miller</span></div>
+            <div><strong>Email:</strong> <span id="modal-m-cust-email">jordan.miller@example.com</span></div>
+            <div><strong>Phone:</strong> <span id="modal-m-cust-phone">(555) 234-5678</span></div>
+          </div>
+        </div>
+
+        <div class="order-modal-section">
+          <div class="order-modal-section-title">Appointment Schedule</div>
+          <div style="font-size: var(--font-size-sm); display: flex; flex-direction: column; gap: 0.35rem;">
+            <div><strong>Scheduled Date:</strong> <span id="modal-m-date">Wed, Sep 30, 2026</span></div>
+            <div><strong>Arrival Time:</strong> <span id="modal-m-time">09:00 AM</span></div>
+          </div>
+        </div>
+
+        <div class="order-modal-section">
+          <div class="order-modal-section-title">Billing &amp; Revenue</div>
+          <div style="display: flex; justify-content: space-between; font-size: var(--font-size-sm);">
+            <span>Amount Paid:</span>
+            <strong id="modal-m-amount" style="color: #059669; font-size: 1.15rem;">$65.00</strong>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
+        <button type="button" class="btn btn-secondary" id="modal-m-btn-close">Close Details</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="merchant-dashboard.js"></script>
+</body>
+</html>
